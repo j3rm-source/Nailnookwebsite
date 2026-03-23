@@ -16,4 +16,8 @@ Everything lives in one HTML file with three co-located sections:
 
 ## Git workflow
 
-A Stop hook in `~/.claude/settings.json` automatically stages all changes, commits with a message listing the changed files, and pushes to `origin master` at the end of every Claude session. Manual commits are not needed unless a specific message is required.
+After every piece of work — no exceptions — stage all changes, commit with a clean descriptive message, and push to `origin master`. Every completed change must exist on GitHub so work is never lost and any state can be reverted.
+
+Commit message format: use a short imperative summary that describes *what changed and why*, e.g. `add AI opponent with minimax`, `fix win detection on diagonal`, `style: darken board background`. Avoid vague messages like "update" or "changes".
+
+A Stop hook in `~/.claude/settings.json` handles this automatically at the end of each session. If making a significant mid-session change (new feature, bug fix), commit explicitly with a meaningful message rather than waiting for the auto-save.
