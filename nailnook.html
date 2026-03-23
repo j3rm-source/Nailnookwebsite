@@ -589,6 +589,102 @@
     .appt-cancel:hover { background: var(--color-error); color: #fff; }
     .appt-empty { text-align: center; color: var(--color-text-muted); padding: 2rem; font-style: italic; }
 
+    /* === REVIEWS === */
+    #reviews { background: var(--color-surface-alt); }
+
+    .reviews-meta {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .reviews-overall {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--color-bg);
+      border: 1px solid rgba(212,132,154,0.25);
+      border-radius: 50px;
+      padding: 0.6rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .reviews-overall .big-rating {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .reviews-overall .stars-row { display: flex; gap: 3px; }
+    .reviews-overall .stars-row i { color: #e8a45a; font-size: 1rem; }
+    .reviews-overall .review-count { font-size: 0.85rem; color: var(--color-text-muted); }
+    .reviews-see-all {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--color-gold-dark);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    .reviews-see-all:hover { color: var(--color-rose); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .review-card {
+      background: var(--color-bg);
+      border: 1px solid rgba(212,132,154,0.18);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      position: relative;
+      transition: all var(--transition);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .review-card.visible { opacity: 1; transform: translateY(0); }
+    .review-card:hover {
+      box-shadow: 0 8px 28px rgba(212,132,154,0.15);
+      transform: translateY(-3px);
+    }
+    .review-card::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: var(--color-rose-light);
+      position: absolute;
+      top: 0.5rem;
+      left: 1.2rem;
+      line-height: 1;
+      opacity: 0.6;
+    }
+    .review-stars { display: flex; gap: 3px; margin-bottom: 0.8rem; padding-top: 1rem; }
+    .review-stars i { color: #e8a45a; font-size: 0.9rem; }
+    .review-text {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .review-avatar {
+      width: 38px; height: 38px;
+      background: var(--color-surface-alt);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--color-gold-dark);
+      flex-shrink: 0;
+      border: 2px solid var(--color-rose-light);
+    }
+    .review-name { font-weight: 700; font-size: 0.9rem; color: var(--color-text); }
+    .review-source { font-size: 0.78rem; color: var(--color-text-muted); }
+
     /* === LOCATION === */
     #location { background: var(--color-bg); }
     .location-grid {
@@ -959,6 +1055,7 @@
         <li><a href="#hero">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
         <li><a href="#location">Location</a></li>
         <li class="nav-book"><a href="#booking">Book Now</a></li>
       </ul>
@@ -1079,6 +1176,101 @@
     </div>
   </section>
 
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="container">
+      <div class="ornament fade-up"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+      <h2 class="section-title fade-up">What Our Clients Say</h2>
+      <p class="section-subtitle fade-up">Real reviews from our amazing community</p>
+
+      <div class="reviews-meta fade-up">
+        <div class="reviews-overall">
+          <span class="big-rating">4.4</span>
+          <div>
+            <div class="stars-row">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <i class="fa-solid fa-star-half-stroke" aria-hidden="true"></i>
+            </div>
+            <div class="review-count">Based on 94+ reviews</div>
+          </div>
+        </div>
+        <br>
+        <a class="reviews-see-all" href="https://reviews.birdeye.com/the-nail-nook-and-more-170018067252458" target="_blank" rel="noopener">
+          See all reviews <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" style="font-size:0.75rem;"></i>
+        </a>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </div>
+          <p class="review-text">"My tech is Kattie &amp; she's a pro for sure. She did hard gel full set with French manicure — OMG I'm so thrilled. Finally a tech that listens to me. She even cut my cuticles, made sure everything looked FABULOUS! The place was very clean, everyone was extremely friendly. I luv the Nail Nook — what a FANTASTIC lil place."</p>
+          <div class="review-author">
+            <div class="review-avatar">T</div>
+            <div>
+              <div class="review-name">Tricia Lindsay</div>
+              <div class="review-source">Verified Customer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-regular fa-star" aria-hidden="true"></i>
+          </div>
+          <p class="review-text">"HIGHLY RECOMMENDED!!! Stephanie is amazing. During my first appointment she had quite a job to completely remove the old acrylic nail 'stuff' that other places refer to as gel. She applied the true gel product and my nails look and feel so much better. Her attention to detail is amazing. The salon is spotless, folks are friendly. I definitely found my 'go to' nail spot in Havasu. You will pay more here but it is SOOOOO worth it!"</p>
+          <div class="review-author">
+            <div class="review-avatar">L</div>
+            <div>
+              <div class="review-name">Linda Forbes</div>
+              <div class="review-source">Verified Customer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+          </div>
+          <p class="review-text">"The studio is super clean, well-appointed, and beautifully decorated. Staff is superb and attentive. High-end chairs and equipment. A truly relaxing experience every single time — this is the only nail salon I'll go to in Lake Havasu City!"</p>
+          <div class="review-author">
+            <div class="review-avatar">V</div>
+            <div>
+              <div class="review-name">Verified Customer</div>
+              <div class="review-source">Facebook — 96% Recommend</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top: 2.5rem;" class="fade-up">
+        <a href="https://www.facebook.com/The-Nail-Nook-LHC-652812181588363/" target="_blank" rel="noopener" class="btn-secondary">
+          <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>&nbsp; Leave a Review on Facebook
+        </a>
+        &nbsp;
+        <a href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" class="btn-secondary">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>&nbsp; Follow Us on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- BOOKING -->
   <section id="booking">
     <div class="container">
@@ -1189,16 +1381,14 @@
             <i class="fa-solid fa-map-pin" aria-hidden="true"></i>
             <div class="info-text">
               <strong>Address</strong>
-              <!-- TODO: Replace with exact street address -->
-              Lake Havasu City, AZ 86403
+              1947 McCulloch Blvd N # 104<br>Lake Havasu City, AZ 86403
             </div>
           </div>
           <div class="info-item">
             <i class="fa-solid fa-phone" aria-hidden="true"></i>
             <div class="info-text">
               <strong>Phone</strong>
-              <!-- TODO: Replace with actual phone number -->
-              <a href="tel:9285550100" style="color: inherit; text-decoration: none;">(928) 555-0100</a>
+              <a href="tel:9284863524" style="color: inherit; text-decoration: none;">(928) 486-3524</a>
             </div>
           </div>
           <div class="info-item">
@@ -1222,10 +1412,8 @@
           </div>
         </div>
         <div class="map-container fade-up">
-          <!-- TODO: Replace src with exact address Google Maps embed URL once you have the street address.
-               Get it from: maps.google.com → search your address → Share → Embed a map → copy iframe src -->
           <iframe
-            src="https://maps.google.com/maps?q=Nail+Salon+Lake+Havasu+City+AZ&output=embed&z=14"
+            src="https://maps.google.com/maps?q=1947+McCulloch+Blvd+N+%23+104,+Lake+Havasu+City,+AZ+86403&output=embed&z=16"
             title="Nail Nook and More location map"
             allowfullscreen=""
             loading="lazy"
@@ -1247,9 +1435,8 @@
           </a>
           <p>Your trusted nail salon in Lake Havasu City, AZ. Where beauty meets expertise and every client leaves glowing.</p>
           <div class="social-links">
-            <!-- TODO: Replace # with actual social media profile URLs -->
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/The-Nail-Nook-LHC-652812181588363/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
             <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
           </div>
         </div>
@@ -1259,6 +1446,7 @@
             <li><a href="#hero">Home</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#about">About Us</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#booking">Book Now</a></li>
             <li><a href="#location">Location</a></li>
           </ul>
@@ -1341,6 +1529,22 @@
 
       const grid = document.querySelector('.services-grid');
       if (grid) cardObserver.observe(grid);
+
+      const reviewsGrid = document.querySelector('.reviews-grid');
+      if (reviewsGrid) {
+        const reviewObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.querySelectorAll('.review-card').forEach((card, i) => {
+                card.style.transitionDelay = (i * 0.15) + 's';
+                card.classList.add('visible');
+              });
+              reviewObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        reviewObserver.observe(reviewsGrid);
+      }
     }
 
     /* === BOOKING STORE === */
