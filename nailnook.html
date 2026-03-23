@@ -1037,6 +1037,237 @@
       .hero-ctas { flex-direction: column; align-items: center; }
       .hero-ctas .btn-primary, .hero-ctas .btn-secondary { width: 100%; text-align: center; }
     }
+
+    /* === TEAM SECTION === */
+    #team { background: var(--color-bg); }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 1.5rem; }
+    .tech-card {
+      background: var(--color-surface);
+      border: 1px solid rgba(212,132,154,0.2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+      position: relative;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .tech-card.visible { opacity: 1; transform: translateY(0); }
+    .tech-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(212,132,154,0.22); border-color: var(--color-rose); }
+    .tech-photo { height: 155px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .tp-stephanie { background: linear-gradient(135deg,#f8d4e0,#e8a0b4,#d4849a); }
+    .tp-kattie    { background: linear-gradient(135deg,#f0c4d4,#d4849a,#b87a8a); }
+    .tp-rita      { background: linear-gradient(135deg,#fce8ed,#f0b8c8,#d4849a); }
+    .tp-shannon   { background: linear-gradient(135deg,#f4d8e8,#d4a4c0,#b87098); }
+    .tp-kathy     { background: linear-gradient(135deg,#d4f0e4,#90c8a8,#6aab88); }
+    .tech-initials {
+      width: 78px; height: 78px;
+      background: rgba(255,255,255,0.32);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem; color: #fff;
+      border: 3px solid rgba(255,255,255,0.55);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .tech-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top;
+      position: absolute; inset: 0;
+    }
+    .tech-avail-badge {
+      position: absolute; top: 9px; right: 9px;
+      background: rgba(255,255,255,0.92); border-radius: 50px;
+      padding: 0.18rem 0.55rem; font-size: 0.71rem; font-weight: 700;
+      color: var(--color-success); display: flex; align-items: center; gap: 0.25rem;
+    }
+    .tech-avail-badge.unavail { color: #c0524a; }
+    .tech-avail-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--color-success); display: inline-block;
+    }
+    .tech-avail-badge.unavail::before { background: #c0524a; }
+    .tech-settings-btn {
+      position: absolute; top: 8px; left: 8px;
+      background: rgba(255,255,255,0.85); border: none; border-radius: 50%;
+      width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--color-text-muted); font-size: 0.68rem;
+      transition: all var(--transition);
+    }
+    .tech-settings-btn:hover { background: var(--color-rose); color: #fff; }
+    .tech-body { padding: 1rem 1.2rem 0.4rem; }
+    .tech-name { font-family: 'Playfair Display', serif; font-size: 1.12rem; color: var(--color-text); margin-bottom: 0.1rem; }
+    .tech-title { font-size: 0.75rem; color: var(--color-gold-dark); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.55rem; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.28rem; margin-bottom: 0.65rem; }
+    .tech-tag { background: var(--color-surface-alt); color: var(--color-gold-dark); border-radius: 50px; padding: 0.16rem 0.5rem; font-size: 0.72rem; font-weight: 700; }
+    .tech-bio { font-size: 0.81rem; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 0.65rem; }
+    .tech-links { display: flex; align-items: center; gap: 0.45rem; margin-bottom: 0.45rem; flex-wrap: wrap; }
+    .tech-social-link {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--color-surface-alt); display: flex; align-items: center; justify-content: center;
+      color: var(--color-gold-dark); text-decoration: none; font-size: 0.8rem; transition: all var(--transition);
+    }
+    .tech-social-link:hover { background: var(--color-rose); color: #fff; }
+    .tech-phone-link {
+      display: flex; align-items: center; gap: 0.32rem;
+      font-size: 0.8rem; color: var(--color-text-muted); text-decoration: none; transition: color var(--transition);
+    }
+    .tech-phone-link:hover { color: var(--color-rose); }
+    .tech-phone-link i { color: var(--color-rose); font-size: 0.72rem; }
+    .tech-avail-line { padding: 0.35rem 1.2rem 0.45rem; font-size: 0.74rem; color: var(--color-text-muted); display: flex; align-items: center; gap: 0.3rem; }
+    .tech-avail-line i { color: var(--color-success); }
+    .tech-footer { padding: 0 1.2rem 1.1rem; }
+    .tech-book-btn {
+      width: 100%; padding: 0.62rem;
+      background: var(--color-rose); color: #fff; border: none; border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.86rem;
+      cursor: pointer; transition: all var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    }
+    .tech-book-btn:hover { background: var(--color-gold); transform: translateY(-1px); }
+
+    /* === GALLERY SECTION === */
+    #gallery { background: var(--color-surface-alt); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 0.75rem;
+    }
+    .gallery-tile { aspect-ratio: 1; border-radius: 10px; overflow: hidden; position: relative; cursor: pointer; transition: transform var(--transition); }
+    .gallery-tile:hover { transform: scale(1.04); z-index: 1; }
+    .gallery-tile:hover .gallery-overlay { opacity: 1; }
+    .gallery-tile-bg { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; }
+    .g1  { background: linear-gradient(135deg,#fff0f3,#f0b8c8,#d4849a); }
+    .g2  { background: linear-gradient(135deg,#fce8ed,#e8a0b4,#c07090); }
+    .g3  { background: linear-gradient(135deg,#2d1a22,#8c5a68,#d4849a); }
+    .g4  { background: linear-gradient(135deg,#f0f0ff,#c8b8f0,#9878cc); }
+    .g5  { background: linear-gradient(135deg,#fff8e8,#f0d890,#c8a830); }
+    .g6  { background: linear-gradient(135deg,#e8f8e8,#a0d8a8,#4a9a60); }
+    .g7  { background: linear-gradient(135deg,#fff0f0,#f09090,#c01818); }
+    .g8  { background: linear-gradient(135deg,#e8f4f8,#90c4e0,#3080a8); }
+    .g9  { background: repeating-linear-gradient(45deg,#f8d4e0,#f8d4e0 10px,#d4849a 10px,#d4849a 20px); }
+    .g10 { background: linear-gradient(135deg,#fff0e8,#f8b880,#e87020); }
+    .g11 { background: linear-gradient(135deg,#2d2d38,#606070,#9090a0); }
+    .g12 { background: linear-gradient(135deg,#f0e8ff,#d0b8f8,#9060d8); }
+    .gallery-overlay {
+      position: absolute; inset: 0; background: rgba(45,26,34,0.65);
+      display: flex; align-items: flex-end; padding: 0.7rem;
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .gallery-label { color: #fff; font-size: 0.78rem; font-weight: 700; font-family: 'Playfair Display', serif; }
+    .gallery-cta { text-align: center; margin-top: 2rem; }
+
+    /* === CALL NOW FLOATING BUTTON === */
+    #call-now-float {
+      position: fixed; bottom: 2rem; left: 2rem; z-index: 900;
+      background: #4a9a60; color: #fff;
+      border: none; border-radius: 50px;
+      padding: 0.85rem 1.4rem;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.88rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(74,154,96,0.4);
+      transition: all var(--transition);
+      animation: pulse-green 3s ease-in-out infinite;
+    }
+    #call-now-float:hover { background: #3a8050; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(74,154,96,0.55); }
+    @keyframes pulse-green {
+      0%,100% { box-shadow: 0 4px 20px rgba(74,154,96,0.4); }
+      50%      { box-shadow: 0 4px 28px rgba(74,154,96,0.7), 0 0 0 8px rgba(74,154,96,0.08); }
+    }
+
+    /* === CHAT LABEL BUBBLE === */
+    #chat-label {
+      position: fixed; bottom: 7.8rem; right: 2rem; z-index: 899;
+      background: var(--color-text); color: #fff;
+      padding: 0.48rem 0.9rem; border-radius: 12px;
+      font-size: 0.8rem; font-weight: 700; white-space: nowrap;
+      pointer-events: none;
+      opacity: 0; transform: translateY(8px);
+      transition: all 0.4s ease;
+    }
+    #chat-label::after {
+      content: ''; position: absolute; bottom: -6px; right: 17px;
+      border-left: 6px solid transparent; border-right: 6px solid transparent;
+      border-top: 6px solid var(--color-text);
+    }
+    #chat-label.show { opacity: 1; transform: translateY(0); }
+
+    /* Larger chat toggle */
+    #chatbot-toggle { width: 64px; height: 64px; }
+    #chatbot-toggle i { font-size: 1.6rem; }
+
+    /* === AVAILABILITY MODAL === */
+    .avail-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(45,26,34,0.55); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity var(--transition);
+    }
+    .avail-overlay.open { opacity: 1; pointer-events: all; }
+    .avail-modal {
+      background: var(--color-bg); border-radius: var(--radius);
+      padding: 2rem; max-width: 370px; width: 92%;
+      box-shadow: 0 20px 60px rgba(45,26,34,0.28);
+      position: relative; transform: scale(0.94);
+      transition: transform var(--transition);
+    }
+    .avail-overlay.open .avail-modal { transform: scale(1); }
+    .avail-modal-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.25rem; }
+    .avail-modal-sub { font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 1.4rem; }
+    .avail-modal-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--color-text-muted); cursor: pointer; font-size: 1.05rem; transition: color var(--transition); }
+    .avail-modal-close:hover { color: var(--color-rose); }
+    .avail-section-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); margin-bottom: 0.55rem; }
+    .avail-days-row { display: grid; grid-template-columns: repeat(7,1fr); gap: 0.28rem; margin-bottom: 1.1rem; }
+    .avail-day-btn {
+      padding: 0.38rem 0.05rem; border: 1.5px solid rgba(212,132,154,0.3);
+      border-radius: 6px; background: var(--color-surface);
+      color: var(--color-text-muted); font-size: 0.7rem; font-weight: 700;
+      cursor: pointer; text-align: center; transition: all var(--transition);
+    }
+    .avail-day-btn.on { background: var(--color-rose); color: #fff; border-color: var(--color-rose); }
+    .avail-times-row { display: flex; flex-wrap: wrap; gap: 0.38rem; margin-bottom: 1.4rem; }
+    .avail-time-btn {
+      padding: 0.32rem 0.75rem; border: 1.5px solid rgba(212,132,154,0.3);
+      border-radius: 50px; background: var(--color-surface);
+      color: var(--color-text-muted); font-size: 0.76rem; font-weight: 700;
+      cursor: pointer; transition: all var(--transition);
+    }
+    .avail-time-btn.on { background: var(--color-rose); color: #fff; border-color: var(--color-rose); }
+    .avail-save-btn {
+      width: 100%; padding: 0.72rem; background: var(--color-rose); color: #fff;
+      border: none; border-radius: 8px; font-family: 'Lato', sans-serif;
+      font-weight: 700; font-size: 0.92rem; cursor: pointer; transition: background var(--transition);
+    }
+    .avail-save-btn:hover { background: var(--color-gold); }
+
+    /* === CHAT TECH RECOMMENDATIONS === */
+    .chat-tech-list { display: flex; flex-direction: column; gap: 0.38rem; margin-top: 0.4rem; }
+    .chat-tech-card {
+      background: var(--color-surface-alt); border: 1px solid rgba(212,132,154,0.25);
+      border-radius: 8px; padding: 0.55rem 0.75rem;
+      cursor: pointer; transition: all var(--transition);
+      display: flex; align-items: center; gap: 0.55rem;
+    }
+    .chat-tech-card:hover { border-color: var(--color-rose); background: var(--color-bg); }
+    .chat-tech-emoji { font-size: 1.1rem; width: 28px; text-align: center; }
+    .chat-tech-info { flex: 1; }
+    .chat-tech-name { font-weight: 700; font-size: 0.82rem; color: var(--color-text); }
+    .chat-tech-spec { font-size: 0.71rem; color: var(--color-text-muted); }
+    .chat-pick-btn {
+      background: var(--color-rose); color: #fff; border: none; border-radius: 6px;
+      padding: 0.26rem 0.6rem; font-size: 0.73rem; font-weight: 700;
+      cursor: pointer; font-family: 'Lato', sans-serif; white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* === RESPONSIVE (new) === */
+    @media (max-width: 768px) {
+      #call-now-float { left: 1rem; bottom: 1rem; font-size: 0.82rem; padding: 0.72rem 1.1rem; }
+      #chat-label { right: 1rem; bottom: 8rem; }
+      #chatbot-toggle { right: 1rem; bottom: 1rem; }
+      .gallery-grid { grid-template-columns: repeat(auto-fill,minmax(130px,1fr)); }
+    }
+    @media (max-width: 480px) {
+      .team-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -1054,7 +1285,7 @@
       <ul id="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#team">Our Team</a></li>
         <li><a href="#reviews">Reviews</a></li>
         <li><a href="#location">Location</a></li>
         <li class="nav-book"><a href="#booking">Book Now</a></li>
@@ -1077,7 +1308,8 @@
         <p class="hero-sub">Where every visit is a moment of luxury.<br>Expert nail care tailored just for you.</p>
         <div class="hero-ctas">
           <a href="#booking" class="btn-primary"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i>&nbsp; Book Appointment</a>
-          <a href="#services" class="btn-secondary"><i class="fa-solid fa-spa" aria-hidden="true"></i>&nbsp; View Services</a>
+          <a href="tel:9284863524" class="btn-secondary"><i class="fa-solid fa-phone" aria-hidden="true"></i>&nbsp; Call Now</a>
+          <a href="#team" class="btn-ghost"><i class="fa-solid fa-users" aria-hidden="true"></i>&nbsp; Meet the Team</a>
         </div>
       </div>
     </div>
@@ -1172,6 +1404,189 @@
             <li><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Relaxing, Welcoming Environment</li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM SECTION -->
+  <section id="team">
+    <div class="container">
+      <div class="ornament fade-up"><i class="fa-solid fa-hand-sparkles" aria-hidden="true"></i></div>
+      <h2 class="section-title fade-up">Meet Our Technicians</h2>
+      <p class="section-subtitle fade-up">Talented artists dedicated to making you look and feel your best</p>
+      <div class="team-grid">
+
+        <!-- Stephanie -->
+        <div class="tech-card">
+          <div class="tech-photo tp-stephanie">
+            <div class="tech-initials">S</div>
+            <span class="tech-avail-badge" id="avail-badge-stephanie">Available</span>
+            <button class="tech-settings-btn" onclick="openAvailModal('stephanie','Stephanie')" title="Update Availability"><i class="fa-solid fa-sliders"></i></button>
+          </div>
+          <div class="tech-body">
+            <div class="tech-name">Stephanie</div>
+            <div class="tech-title">Owner &amp; Senior Nail Technician</div>
+            <div class="tech-tags">
+              <span class="tech-tag">Gel Manicures</span>
+              <span class="tech-tag">Acrylics</span>
+              <span class="tech-tag">Nail Art</span>
+            </div>
+            <p class="tech-bio">With 8+ years serving Lake Havasu City clients, Stephanie is the heart of Nail Nook. Her gel manicures are legendary — nails last 3–4 weeks without breaking. An artist and perfectionist who brings creativity to every set.</p>
+            <div class="tech-links">
+              <a class="tech-social-link" href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a class="tech-social-link" href="https://www.facebook.com/The-Nail-Nook-LHC-652812181588363/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a class="tech-phone-link" href="tel:9284863524"><i class="fa-solid fa-phone"></i> (928) 486-3524</a>
+            </div>
+          </div>
+          <div class="tech-avail-line" id="avail-line-stephanie"><i class="fa-solid fa-circle-check"></i> <span>Mon – Sat</span></div>
+          <div class="tech-footer">
+            <button class="tech-book-btn" onclick="bookWithTech('stephanie','Stephanie')"><i class="fa-solid fa-calendar-check"></i> Book with Stephanie</button>
+          </div>
+        </div>
+
+        <!-- Kattie -->
+        <div class="tech-card">
+          <div class="tech-photo tp-kattie">
+            <div class="tech-initials">K</div>
+            <span class="tech-avail-badge" id="avail-badge-kattie">Available</span>
+            <button class="tech-settings-btn" onclick="openAvailModal('kattie','Kattie')" title="Update Availability"><i class="fa-solid fa-sliders"></i></button>
+          </div>
+          <div class="tech-body">
+            <div class="tech-name">Kattie</div>
+            <div class="tech-title">Hard Gel Specialist</div>
+            <div class="tech-tags">
+              <span class="tech-tag">Hard Gel</span>
+              <span class="tech-tag">French Manicure</span>
+              <span class="tech-tag">Precision</span>
+            </div>
+            <p class="tech-bio">Kattie is a true pro who listens to every client's vision. Known for flawless hard gel full sets and French manicures, she's meticulous — right down to the cuticles. Clients leave feeling absolutely fabulous.</p>
+            <div class="tech-links">
+              <a class="tech-social-link" href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a class="tech-social-link" href="https://www.facebook.com/The-Nail-Nook-LHC-652812181588363/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a class="tech-phone-link" href="tel:9284863524"><i class="fa-solid fa-phone"></i> (928) 486-3524</a>
+            </div>
+          </div>
+          <div class="tech-avail-line" id="avail-line-kattie"><i class="fa-solid fa-circle-check"></i> <span>Mon – Sat</span></div>
+          <div class="tech-footer">
+            <button class="tech-book-btn" onclick="bookWithTech('kattie','Kattie')"><i class="fa-solid fa-calendar-check"></i> Book with Kattie</button>
+          </div>
+        </div>
+
+        <!-- Rita -->
+        <div class="tech-card">
+          <div class="tech-photo tp-rita">
+            <div class="tech-initials">R</div>
+            <span class="tech-avail-badge" id="avail-badge-rita">Available</span>
+            <button class="tech-settings-btn" onclick="openAvailModal('rita','Rita')" title="Update Availability"><i class="fa-solid fa-sliders"></i></button>
+          </div>
+          <div class="tech-body">
+            <div class="tech-name">Rita</div>
+            <div class="tech-title">Pedicure &amp; Nail Specialist</div>
+            <div class="tech-tags">
+              <span class="tech-tag">Spa Pedicures</span>
+              <span class="tech-tag">Manicures</span>
+              <span class="tech-tag">Nail Care</span>
+            </div>
+            <p class="tech-bio">Rita Davenport is Lake Havasu's go-to for the most thorough, luxurious pedicures in town. Gentle yet incredibly detailed, she's known for going above and beyond. Clients call her exceptional — and exceptional she is.</p>
+            <div class="tech-links">
+              <a class="tech-social-link" href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a class="tech-social-link" href="https://www.facebook.com/The-Nail-Nook-LHC-652812181588363/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a class="tech-phone-link" href="tel:9284863524"><i class="fa-solid fa-phone"></i> (928) 486-3524</a>
+            </div>
+          </div>
+          <div class="tech-avail-line" id="avail-line-rita"><i class="fa-solid fa-circle-check"></i> <span>Mon – Fri</span></div>
+          <div class="tech-footer">
+            <button class="tech-book-btn" onclick="bookWithTech('rita','Rita')"><i class="fa-solid fa-calendar-check"></i> Book with Rita</button>
+          </div>
+        </div>
+
+        <!-- Shannon -->
+        <div class="tech-card">
+          <div class="tech-photo tp-shannon">
+            <div class="tech-initials">S</div>
+            <span class="tech-avail-badge" id="avail-badge-shannon">Available</span>
+            <button class="tech-settings-btn" onclick="openAvailModal('shannon','Shannon')" title="Update Availability"><i class="fa-solid fa-sliders"></i></button>
+          </div>
+          <div class="tech-body">
+            <div class="tech-name">Shannon</div>
+            <div class="tech-title">Nail Artist</div>
+            <div class="tech-tags">
+              <span class="tech-tag">Nail Art</span>
+              <span class="tech-tag">Holiday Designs</span>
+              <span class="tech-tag">Creative Sets</span>
+            </div>
+            <p class="tech-bio">Shannon brings color and creativity to every appointment. From festive holiday designs to intricate custom art, she'll turn your nails into a masterpiece. Clients love her cheerful energy and stunning seasonal looks.</p>
+            <div class="tech-links">
+              <a class="tech-social-link" href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a class="tech-social-link" href="https://www.facebook.com/The-Nail-Nook-LHC-652812181588363/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a class="tech-phone-link" href="tel:9284863524"><i class="fa-solid fa-phone"></i> (928) 486-3524</a>
+            </div>
+          </div>
+          <div class="tech-avail-line" id="avail-line-shannon"><i class="fa-solid fa-circle-check"></i> <span>Tue – Sat</span></div>
+          <div class="tech-footer">
+            <button class="tech-book-btn" onclick="bookWithTech('shannon','Shannon')"><i class="fa-solid fa-calendar-check"></i> Book with Shannon</button>
+          </div>
+        </div>
+
+        <!-- Kathy -->
+        <div class="tech-card">
+          <div class="tech-photo tp-kathy">
+            <div class="tech-initials">K</div>
+            <span class="tech-avail-badge" id="avail-badge-kathy">Available</span>
+            <button class="tech-settings-btn" onclick="openAvailModal('kathy','Kathy')" title="Update Availability"><i class="fa-solid fa-sliders"></i></button>
+          </div>
+          <div class="tech-body">
+            <div class="tech-name">Kathy</div>
+            <div class="tech-title">Hair &amp; Beauty Specialist</div>
+            <div class="tech-tags">
+              <span class="tech-tag">Hair Cutting</span>
+              <span class="tech-tag">Curly Hair</span>
+              <span class="tech-tag">Styling</span>
+            </div>
+            <p class="tech-bio">Kathy is your go-to for beautiful hair. Particularly skilled with curly and frizzy hair, she takes time to understand each client's texture and delivers stunning results every time. Sweet, kind, and incredibly knowledgeable.</p>
+            <div class="tech-links">
+              <a class="tech-social-link" href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a class="tech-social-link" href="https://www.facebook.com/The-Nail-Nook-LHC-652812181588363/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a class="tech-phone-link" href="tel:9284863524"><i class="fa-solid fa-phone"></i> (928) 486-3524</a>
+            </div>
+          </div>
+          <div class="tech-avail-line" id="avail-line-kathy"><i class="fa-solid fa-circle-check"></i> <span>Mon – Sat</span></div>
+          <div class="tech-footer">
+            <button class="tech-book-btn" onclick="bookWithTech('kathy','Kathy')"><i class="fa-solid fa-calendar-check"></i> Book with Kathy</button>
+          </div>
+        </div>
+
+      </div><!-- /team-grid -->
+    </div>
+  </section>
+
+  <!-- GALLERY SECTION -->
+  <section id="gallery">
+    <div class="container">
+      <div class="ornament fade-up"><i class="fa-solid fa-camera" aria-hidden="true"></i></div>
+      <h2 class="section-title fade-up">Our Work</h2>
+      <p class="section-subtitle fade-up">A glimpse of the artistry we bring to every appointment</p>
+      <div class="gallery-grid">
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g1">💅</div><div class="gallery-overlay"><span class="gallery-label">Classic French</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g2">✨</div><div class="gallery-overlay"><span class="gallery-label">Ombre Rose</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g3">🖤</div><div class="gallery-overlay"><span class="gallery-label">Black Chrome</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g4">💜</div><div class="gallery-overlay"><span class="gallery-label">Lavender Dream</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g5">✨</div><div class="gallery-overlay"><span class="gallery-label">Gold Foil Art</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g6">🌿</div><div class="gallery-overlay"><span class="gallery-label">Mint &amp; Sage</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g7">❤️</div><div class="gallery-overlay"><span class="gallery-label">Cherry Red</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g8">🌊</div><div class="gallery-overlay"><span class="gallery-label">Ocean Blue</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g9">💖</div><div class="gallery-overlay"><span class="gallery-label">Rose Glitter</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g10">🍂</div><div class="gallery-overlay"><span class="gallery-label">Autumn Sunset</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g11">🩶</div><div class="gallery-overlay"><span class="gallery-label">Smoky Crystal</span></div></div>
+        <div class="gallery-tile fade-up"><div class="gallery-tile-bg g12">🔮</div><div class="gallery-overlay"><span class="gallery-label">Holographic</span></div></div>
+      </div>
+      <div class="gallery-cta fade-up">
+        <a href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" class="btn-primary" style="margin-right:0.75rem;">
+          <i class="fa-brands fa-instagram" aria-hidden="true"></i>&nbsp; See More on Instagram
+        </a>
+        <a href="#booking" class="btn-secondary">
+          <i class="fa-solid fa-calendar-check" aria-hidden="true"></i>&nbsp; Book Your Look
+        </a>
       </div>
     </div>
   </section>
@@ -1445,6 +1860,17 @@
             <span class="field-error" id="err-time">Please select a time slot.</span>
           </div>
           <div class="form-group">
+            <label for="booking-tech">Preferred Technician <span style="font-weight:300; text-transform:none;">(optional)</span></label>
+            <select id="booking-tech">
+              <option value="">No preference</option>
+              <option value="Stephanie">Stephanie — Owner &amp; Senior Tech</option>
+              <option value="Kattie">Kattie — Hard Gel Specialist</option>
+              <option value="Rita">Rita — Pedicure &amp; Nail Specialist</option>
+              <option value="Shannon">Shannon — Nail Artist</option>
+              <option value="Kathy">Kathy — Hair Specialist</option>
+            </select>
+          </div>
+          <div class="form-group">
             <label for="booking-notes">Special Requests <span style="font-weight:300; text-transform:none;">(optional)</span></label>
             <textarea id="booking-notes" rows="3" placeholder="Any allergies, preferred nail shape, design ideas, or other notes..."></textarea>
           </div>
@@ -1558,7 +1984,8 @@
           <ul>
             <li><a href="#hero">Home</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#about">About Us</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#gallery">Our Work</a></li>
             <li><a href="#reviews">Reviews</a></li>
             <li><a href="#booking">Book Now</a></li>
             <li><a href="#location">Location</a></li>
@@ -1580,6 +2007,40 @@
       </div>
     </div>
   </footer>
+
+  <!-- CALL NOW FLOATING BUTTON -->
+  <a id="call-now-float" href="tel:9284863524" aria-label="Call Nail Nook now">
+    <i class="fa-solid fa-phone" aria-hidden="true"></i> Call Now
+  </a>
+
+  <!-- CHAT LABEL BUBBLE -->
+  <div id="chat-label" aria-hidden="true">💅 Book in 60 seconds!</div>
+
+  <!-- AVAILABILITY MODAL -->
+  <div class="avail-overlay" id="avail-overlay" role="dialog" aria-modal="true" aria-label="Update Availability">
+    <div class="avail-modal">
+      <button class="avail-modal-close" onclick="closeAvailModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="avail-modal-title" id="avail-modal-title">Update Availability</div>
+      <div class="avail-modal-sub" id="avail-modal-sub">Set your available days and times</div>
+      <div class="avail-section-label">Available Days</div>
+      <div class="avail-days-row" id="avail-days-row">
+        <button class="avail-day-btn on" data-day="Mon">Mon</button>
+        <button class="avail-day-btn on" data-day="Tue">Tue</button>
+        <button class="avail-day-btn on" data-day="Wed">Wed</button>
+        <button class="avail-day-btn on" data-day="Thu">Thu</button>
+        <button class="avail-day-btn on" data-day="Fri">Fri</button>
+        <button class="avail-day-btn on" data-day="Sat">Sat</button>
+        <button class="avail-day-btn" data-day="Sun">Sun</button>
+      </div>
+      <div class="avail-section-label">Available Times</div>
+      <div class="avail-times-row" id="avail-times-row">
+        <button class="avail-time-btn on" data-time="Morning">Morning</button>
+        <button class="avail-time-btn on" data-time="Afternoon">Afternoon</button>
+        <button class="avail-time-btn on" data-time="Evening">Evening</button>
+      </div>
+      <button class="avail-save-btn" onclick="saveAvailability()"><i class="fa-solid fa-circle-check"></i>&nbsp; Save Availability</button>
+    </div>
+  </div>
 
   <!-- CHATBOT WIDGET -->
   <button id="chatbot-toggle" aria-label="Open chat assistant">
@@ -1608,6 +2069,105 @@
   </div>
 
   <script>
+    /* === TECHNICIAN DATA === */
+    const TECHNICIANS = [
+      { id: 'stephanie', name: 'Stephanie', emoji: '✨', title: 'Owner & Senior Tech',   services: ['Classic Manicure','Gel Manicure','Acrylic Full Set','Nail Art','Dip Powder'] },
+      { id: 'kattie',    name: 'Kattie',    emoji: '💅', title: 'Hard Gel Specialist',   services: ['Gel Manicure','Classic Manicure','Nail Art','Acrylic Full Set'] },
+      { id: 'rita',      name: 'Rita',      emoji: '🌸', title: 'Pedicure & Nail Spec.', services: ['Classic Pedicure','Spa Pedicure','Classic Manicure','Gel Manicure'] },
+      { id: 'shannon',   name: 'Shannon',   emoji: '🎨', title: 'Nail Artist',            services: ['Nail Art','Classic Manicure','Gel Manicure','Acrylic Full Set','Dip Powder'] },
+      { id: 'kathy',     name: 'Kathy',     emoji: '✂️', title: 'Hair Specialist',        services: ['Waxing'] },
+    ];
+
+    /* === AVAILABILITY STORE === */
+    const AvailStore = {
+      KEY: 'nailnook_availability',
+      defaults: {
+        stephanie: { days: ['Mon','Tue','Wed','Thu','Fri','Sat'], times: ['Morning','Afternoon','Evening'] },
+        kattie:    { days: ['Mon','Tue','Wed','Thu','Fri','Sat'], times: ['Morning','Afternoon','Evening'] },
+        rita:      { days: ['Mon','Tue','Wed','Thu','Fri'],       times: ['Morning','Afternoon','Evening'] },
+        shannon:   { days: ['Tue','Wed','Thu','Fri','Sat'],       times: ['Morning','Afternoon','Evening'] },
+        kathy:     { days: ['Mon','Tue','Wed','Thu','Fri','Sat'], times: ['Morning','Afternoon'] },
+      },
+      getAll() {
+        try { return JSON.parse(localStorage.getItem(this.KEY)) || {}; } catch(e) { return {}; }
+      },
+      get(id) { return this.getAll()[id] || this.defaults[id]; },
+      set(id, data) {
+        const all = this.getAll(); all[id] = data;
+        localStorage.setItem(this.KEY, JSON.stringify(all));
+      }
+    };
+
+    /* === AVAILABILITY MODAL === */
+    let _availTechId = null;
+    function openAvailModal(techId, techName) {
+      _availTechId = techId;
+      const av = AvailStore.get(techId);
+      document.getElementById('avail-modal-title').textContent = techName + "'s Availability";
+      document.getElementById('avail-modal-sub').textContent = 'Toggle the days and times you are available.';
+      document.querySelectorAll('#avail-days-row .avail-day-btn').forEach(btn => {
+        btn.classList.toggle('on', av.days.includes(btn.dataset.day));
+      });
+      document.querySelectorAll('#avail-times-row .avail-time-btn').forEach(btn => {
+        btn.classList.toggle('on', av.times.includes(btn.dataset.time));
+      });
+      document.getElementById('avail-overlay').classList.add('open');
+    }
+    function closeAvailModal() { document.getElementById('avail-overlay').classList.remove('open'); }
+    function saveAvailability() {
+      const days = [...document.querySelectorAll('#avail-days-row .avail-day-btn.on')].map(b => b.dataset.day);
+      const times = [...document.querySelectorAll('#avail-times-row .avail-time-btn.on')].map(b => b.dataset.time);
+      AvailStore.set(_availTechId, { days, times });
+      renderAvailLine(_availTechId, { days, times });
+      closeAvailModal();
+      const badge = document.getElementById('avail-badge-' + _availTechId);
+      if (badge) {
+        badge.className = 'tech-avail-badge' + (days.length ? '' : ' unavail');
+        badge.querySelector ? null : null;
+        badge.innerHTML = days.length ? 'Available' : 'Unavailable';
+      }
+    }
+    function renderAvailLine(id, av) {
+      const el = document.getElementById('avail-line-' + id);
+      if (!el) return;
+      const span = el.querySelector('span');
+      if (av.days.length === 0) { if(span) span.textContent = 'Currently unavailable'; return; }
+      const order = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+      const sorted = av.days.sort((a,b) => order.indexOf(a)-order.indexOf(b));
+      const compress = arr => {
+        if (arr.length === 0) return '';
+        if (arr.length === 1) return arr[0];
+        const ranges = []; let s = arr[0], prev = arr[0];
+        for (let i=1;i<arr.length;i++){
+          if (order.indexOf(arr[i]) - order.indexOf(prev) === 1) { prev = arr[i]; }
+          else { ranges.push(s===prev?s:s+' – '+prev); s=prev=arr[i]; }
+        }
+        ranges.push(s===prev?s:s+' – '+prev);
+        return ranges.join(', ');
+      };
+      if(span) span.textContent = compress(sorted);
+    }
+    document.querySelectorAll('.avail-day-btn').forEach(btn => {
+      btn.addEventListener('click', () => btn.classList.toggle('on'));
+    });
+    document.querySelectorAll('.avail-time-btn').forEach(btn => {
+      btn.addEventListener('click', () => btn.classList.toggle('on'));
+    });
+    document.getElementById('avail-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeAvailModal();
+    });
+    function initAvailLines() {
+      TECHNICIANS.forEach(t => renderAvailLine(t.id, AvailStore.get(t.id)));
+    }
+
+    /* === BOOK WITH SPECIFIC TECH === */
+    function bookWithTech(id, name) {
+      const sel = document.getElementById('booking-tech');
+      if (sel) sel.value = name;
+      ChatBot.session.technician = name;
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+
     /* === NAVIGATION === */
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('nav-links');
@@ -1739,6 +2299,7 @@
         ['Service', booking.service],
         ['Date', new Date(booking.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })],
         ['Time', booking.timeSlot],
+        ['Technician', booking.technician || 'No preference'],
         ['Name', booking.name],
         ['Phone', booking.phone],
         ['Email', booking.email],
@@ -1752,6 +2313,22 @@
       document.getElementById('cal-link').href = buildCalendarLink(booking);
       document.getElementById('booking-confirmation').classList.remove('hidden');
       document.getElementById('booking-confirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function sendBookingNotification(booking) {
+      // In production connect this to EmailJS / Formspree / Twilio for real-time push alerts.
+      // For now we compose a pre-filled mailto that the browser opens automatically.
+      const techLine = booking.technician ? `Preferred Technician: ${booking.technician}\n` : '';
+      const subject = encodeURIComponent(`New Booking — ${booking.service}`);
+      const body = encodeURIComponent(
+        `New Appointment Request\n\n` +
+        `Service: ${booking.service}\n` +
+        `Date: ${booking.date}\n` +
+        `Time: ${booking.timeSlot}\n` + techLine +
+        `\nClient: ${booking.name}\nPhone: ${booking.phone}\nEmail: ${booking.email}\n` +
+        (booking.specialRequests ? `Notes: ${booking.specialRequests}` : '')
+      );
+      window.open(`mailto:info@nailnookandmore.com?subject=${subject}&body=${body}`, '_blank');
     }
 
     function resetBookingForm() {
@@ -1777,6 +2354,7 @@
           phone,
           email: document.getElementById('booking-email').value.trim(),
           service: document.getElementById('booking-service').value,
+          technician: document.getElementById('booking-tech').value || '',
           date: document.getElementById('booking-date').value,
           timeSlot: document.getElementById('booking-time').value,
           specialRequests: document.getElementById('booking-notes').value.trim(),
@@ -1784,6 +2362,7 @@
         };
 
         BookingStore.save(booking);
+        sendBookingNotification(booking);
         showConfirmation(booking);
       });
 
@@ -1851,7 +2430,7 @@
     const ChatBot = {
       state: 'INIT',
       opened: false,
-      session: { service: '', date: '', timeSlot: '', name: '', phone: '' },
+      session: { service: '', date: '', timeSlot: '', name: '', phone: '', technician: '' },
 
       open() {
         document.getElementById('chatbot-panel').classList.add('open');
@@ -1901,6 +2480,41 @@
         });
       },
 
+      showTechRecommendations(service) {
+        const matching = TECHNICIANS.filter(t => t.services.some(s => s.toLowerCase().includes(service.toLowerCase().split(' ')[0])));
+        const list = matching.length ? matching : TECHNICIANS.slice(0,3);
+        const area = document.getElementById('chat-quick-replies');
+        area.innerHTML = '';
+        const container = document.createElement('div');
+        container.className = 'chat-tech-list';
+        list.forEach(tech => {
+          const card = document.createElement('div');
+          card.className = 'chat-tech-card';
+          card.innerHTML = `<span class="chat-tech-emoji">${tech.emoji}</span><div class="chat-tech-info"><div class="chat-tech-name">${tech.name}</div><div class="chat-tech-spec">${tech.title}</div></div><button class="chat-pick-btn">Select</button>`;
+          card.querySelector('.chat-pick-btn').addEventListener('click', () => {
+            this.addMessage(tech.name, 'user');
+            area.innerHTML = '';
+            this.session.technician = tech.name;
+            this.state = 'SERVICE_SELECTED';
+            this.advance('TECH_SELECTED');
+          });
+          container.appendChild(card);
+        });
+        // "Any tech" option
+        const anyBtn = document.createElement('button');
+        anyBtn.className = 'quick-reply-btn';
+        anyBtn.textContent = 'Any available tech';
+        anyBtn.addEventListener('click', () => {
+          this.addMessage('Any available tech', 'user');
+          area.innerHTML = '';
+          this.session.technician = '';
+          this.state = 'SERVICE_SELECTED';
+          this.advance('TECH_SELECTED');
+        });
+        area.appendChild(container);
+        area.appendChild(anyBtn);
+      },
+
       showQuickReplies(options) {
         const area = document.getElementById('chat-quick-replies');
         area.innerHTML = '';
@@ -1946,18 +2560,23 @@
         const s = this.session;
 
         if (nextState === 'INIT') {
-          await this.botSay("Hi there! 💅 Welcome to <strong>Nail Nook &amp; More</strong>. I'm here to help you find the perfect service and book your appointment. What are you looking to get done today?");
+          await this.botSay("Hi there! 💅 Welcome to <strong>Nail Nook &amp; More</strong>. I'll help you find the perfect tech and book your appointment in seconds. What are you looking to get done?");
           this.showQuickReplies([
             { label: 'Manicure', value: 'Classic Manicure' },
             { label: 'Gel Manicure', value: 'Gel Manicure' },
             { label: 'Acrylic Nails', value: 'Acrylic Full Set' },
             { label: 'Pedicure', value: 'Classic Pedicure' },
             { label: 'Nail Art', value: 'Nail Art' },
-            { label: 'Something else', value: 'other' },
+            { label: 'Waxing / Other', value: 'other' },
           ]);
 
         } else if (nextState === 'SERVICE_SELECTED') {
-          await this.botSay(`Great choice! <strong>${s.service}</strong> it is ✨<br>When would you like to come in?`);
+          await this.botSay(`Love it! <strong>${s.service}</strong> it is ✨<br>Here are the technicians who specialize in that — pick one or I'll find you the next available:`);
+          this.showTechRecommendations(s.service);
+
+        } else if (nextState === 'TECH_SELECTED') {
+          const techLabel = s.technician ? `You're booked with <strong>${s.technician}</strong> 🌸<br>` : '';
+          await this.botSay(`${techLabel}When would you like to come in?`);
           this.showQuickReplies([
             { label: 'Today', value: 'today' },
             { label: 'Tomorrow', value: 'tomorrow' },
@@ -1986,9 +2605,10 @@
           this.showInput('10-digit phone number');
 
         } else if (nextState === 'PHONE_COLLECTED') {
+          const techLine = s.technician ? `<strong>Technician:</strong> ${s.technician}<br>` : '';
           await this.botSay(
-            `Here's what I have for your appointment:<br><br>` +
-            `<strong>Service:</strong> ${s.service}<br>` +
+            `Here's your appointment summary:<br><br>` +
+            `<strong>Service:</strong> ${s.service}<br>` + techLine +
             `<strong>Date:</strong> ${new Date(s.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}<br>` +
             `<strong>Time:</strong> ${s.timeSlot}<br>` +
             `<strong>Name:</strong> ${s.name}<br>` +
@@ -2007,14 +2627,14 @@
 
         } else if (nextState === 'RESET') {
           await this.botSay("No problem! Let's start fresh. What service are you looking for?");
-          this.session = { service: '', date: '', timeSlot: '', name: '', phone: '' };
+          this.session = { service: '', date: '', timeSlot: '', name: '', phone: '', technician: '' };
           this.showQuickReplies([
             { label: 'Manicure', value: 'Classic Manicure' },
             { label: 'Gel Manicure', value: 'Gel Manicure' },
             { label: 'Acrylic Nails', value: 'Acrylic Full Set' },
             { label: 'Pedicure', value: 'Classic Pedicure' },
             { label: 'Nail Art', value: 'Nail Art' },
-            { label: 'Something else', value: 'other' },
+            { label: 'Waxing / Other', value: 'other' },
           ]);
           this.state = 'INIT';
         }
@@ -2025,18 +2645,15 @@
         if (this.state === 'INIT') {
           if (value === 'other') {
             this.session.service = 'Waxing';
-            await this.botSay("No problem! We also offer Dip Powder, Waxing, and Spa Pedicures. I'll set up the form so you can choose exactly. Let's continue — when would you like to come in?");
-            this.showQuickReplies([
-              { label: 'Today', value: 'today' },
-              { label: 'Tomorrow', value: 'tomorrow' },
-              { label: 'Pick a date', value: 'pick_date' },
-            ]);
+            await this.botSay("No problem! We also do Dip Powder, Waxing, Spa Pedicures, and more. Let me show you who can help:");
+            this.state = 'INIT';
+            this.showTechRecommendations('Waxing');
             this.state = 'SERVICE_SELECTED';
             return;
           }
           this.session.service = value;
           this.advance('SERVICE_SELECTED');
-        } else if (this.state === 'SERVICE_SELECTED') {
+        } else if (this.state === 'TECH_SELECTED') {
           if (value === 'pick_date') {
             this.advance('PICK_DATE');
           } else {
@@ -2104,6 +2721,10 @@
         document.getElementById('booking-service').value = this.session.service;
         document.getElementById('booking-date').value = this.session.date;
         document.getElementById('booking-time').value = this.session.timeSlot;
+        if (this.session.technician) {
+          const sel = document.getElementById('booking-tech');
+          if (sel) sel.value = this.session.technician;
+        }
         // Make sure confirmation is hidden and form is shown
         document.getElementById('booking-confirmation').classList.add('hidden');
         document.getElementById('booking-form-wrapper').classList.remove('hidden');
@@ -2127,11 +2748,43 @@
     /* === FOOTER YEAR === */
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
+    /* === TEAM CARD SCROLL ANIMATION === */
+    function setupTeamAnimations() {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.tech-card').forEach((card, i) => {
+              card.style.transitionDelay = (i * 0.1) + 's';
+              card.classList.add('visible');
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      const tg = document.querySelector('.team-grid');
+      if (tg) obs.observe(tg);
+    }
+
+    /* === CHAT LABEL AUTO-SHOW === */
+    function initChatLabel() {
+      const label = document.getElementById('chat-label');
+      // Show after 4s if chat not yet opened
+      setTimeout(() => {
+        if (!ChatBot.opened) {
+          label.classList.add('show');
+          setTimeout(() => label.classList.remove('show'), 5000);
+        }
+      }, 4000);
+    }
+
     /* === INIT === */
     document.addEventListener('DOMContentLoaded', () => {
       setupScrollAnimations();
+      setupTeamAnimations();
       setupBookingForm();
       ChatBot.init();
+      initAvailLines();
+      initChatLabel();
     });
   </script>
 
