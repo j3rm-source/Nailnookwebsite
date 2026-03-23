@@ -20,7 +20,8 @@
       "Bash(jq:*)",
       "Bash(node:*)",
       "WebFetch(domain:www.yelp.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(start:*)"
     ]
   }
 }
