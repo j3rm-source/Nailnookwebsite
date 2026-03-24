@@ -21,7 +21,8 @@
       "Bash(node:*)",
       "WebFetch(domain:www.yelp.com)",
       "WebSearch",
-      "Bash(start:*)"
+      "Bash(start:*)",
+      "Bash(cd:*)"
     ]
   }
 }
