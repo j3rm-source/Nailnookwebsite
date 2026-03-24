@@ -1055,6 +1055,7 @@
     .tech-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(212,132,154,0.22); border-color: var(--color-rose); }
     .tech-photo { height: 155px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
     .tp-stephanie { background: linear-gradient(135deg,#f8d4e0,#e8a0b4,#d4849a); }
+    .tp-raquel    { background: linear-gradient(135deg,#fde8f4,#e8a8d0,#c86098); }
     .tp-jessica   { background: linear-gradient(135deg,#fce4ee,#f0a8c0,#d46888); }
     .tp-katie     { background: linear-gradient(135deg,#f0c4d4,#d4849a,#b87a8a); }
     .tp-selena    { background: linear-gradient(135deg,#e8d4f0,#c0a0d4,#9868b8); }
@@ -1439,6 +1440,24 @@
           <div class="tech-avail-line" id="avail-line-stephanie"><i class="fa-solid fa-circle-check"></i> <span>Mon – Sat</span></div>
           <div class="tech-footer">
             <button class="tech-book-btn" onclick="bookWithTech('stephanie','Stephanie')"><i class="fa-solid fa-calendar-check"></i> Book Now</button>
+          </div>
+        </div>
+
+        <!-- Raquel -->
+        <div class="tech-card">
+          <div class="tech-photo tp-raquel">
+            <div class="tech-initials">R</div>
+            <span class="tech-avail-badge" id="avail-badge-raquel">Available</span>
+            <button class="tech-settings-btn" onclick="openAvailModal('raquel','Raquel')" title="Update Availability"><i class="fa-solid fa-sliders"></i></button>
+          </div>
+          <div class="tech-body">
+            <div class="tech-name">Raquel</div>
+            <div class="tech-title">Nail Technician</div>
+            <a class="tech-phone-link" href="tel:9288461087" style="font-size:0.95rem;font-weight:700;color:var(--color-text);margin-bottom:0.2rem;display:flex;"><i class="fa-solid fa-phone"></i> (928) 846-1087</a>
+          </div>
+          <div class="tech-avail-line" id="avail-line-raquel"><i class="fa-solid fa-circle-check"></i> <span>Mon – Sat</span></div>
+          <div class="tech-footer">
+            <button class="tech-book-btn" onclick="bookWithTech('raquel','Raquel')"><i class="fa-solid fa-calendar-check"></i> Book Now</button>
           </div>
         </div>
 
@@ -1967,6 +1986,7 @@
               <option value="">No preference</option>
               <optgroup label="Nail Technicians">
                 <option value="Stephanie">Stephanie (Owner)</option>
+                <option value="Raquel">Raquel</option>
                 <option value="Jessica">Jessica</option>
                 <option value="Katie">Katie</option>
                 <option value="Selena">Selena</option>
@@ -2188,6 +2208,7 @@
     /* === TECHNICIAN DATA === */
     const TECHNICIANS = [
       { id: 'stephanie', name: 'Stephanie', emoji: '✨', title: 'Owner · Nail Tech',      services: ['Classic Manicure','Gel Manicure','Acrylic Full Set','Nail Art','Dip Powder'] },
+      { id: 'raquel',    name: 'Raquel',    emoji: '💅', title: 'Nail Technician',        services: ['Classic Manicure','Gel Manicure','Acrylic Full Set','Nail Art','Dip Powder'] },
       { id: 'jessica',   name: 'Jessica',   emoji: '💅', title: 'Nail Technician',        services: ['Classic Manicure','Gel Manicure','Acrylic Full Set','Nail Art','Dip Powder'] },
       { id: 'katie',     name: 'Katie',     emoji: '💅', title: 'Nail Technician',        services: ['Classic Manicure','Gel Manicure','Acrylic Full Set','Nail Art','Dip Powder'] },
       { id: 'selena',    name: 'Selena',    emoji: '💅', title: 'Nail Technician',        services: ['Classic Manicure','Gel Manicure','Acrylic Full Set','Nail Art','Dip Powder'] },
@@ -2207,6 +2228,7 @@
       KEY: 'nailnook_availability',
       defaults: {
         stephanie: { days: ['Mon','Tue','Wed','Thu','Fri','Sat'], times: ['Morning','Afternoon','Evening'] },
+        raquel:    { days: ['Mon','Tue','Wed','Thu','Fri','Sat'], times: ['Morning','Afternoon','Evening'] },
         jessica:   { days: ['Mon','Tue','Wed','Thu','Fri','Sat'], times: ['Morning','Afternoon','Evening'] },
         katie:     { days: ['Mon','Tue','Wed','Thu','Fri','Sat'], times: ['Morning','Afternoon','Evening'] },
         selena:    { days: ['Mon','Tue','Wed','Thu','Fri','Sat'], times: ['Morning','Afternoon','Evening'] },
