@@ -539,6 +539,21 @@
     .confirm-summary-row .value { color: var(--color-text); }
     .confirm-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
+    /* SMS notify button */
+    .btn-sms-notify {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      background: #4a9a60; color: #fff;
+      padding: 0.85rem 1.8rem; border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 1rem;
+      text-decoration: none; cursor: pointer; border: none;
+      box-shadow: 0 4px 16px rgba(74,154,96,0.35);
+      transition: all var(--transition); width: 100%; justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .btn-sms-notify:hover { background: #3a8050; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(74,154,96,0.45); }
+    .notify-wrapper { max-width: 680px; margin: 0 auto 1rem; text-align: center; }
+    .notify-note { font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.3rem; }
+
     /* === MY APPOINTMENTS === */
     #my-appointments {
       max-width: 680px;
@@ -2156,6 +2171,13 @@
         <h2 class="confirm-title">You're all booked!</h2>
         <p class="confirm-sub">We can't wait to see you. Here's a summary of your appointment:</p>
         <div class="confirm-summary" id="confirm-summary-body"></div>
+        <!-- SMS NOTIFY TECH -->
+        <div class="notify-wrapper" id="notify-wrapper">
+          <a id="sms-notify-btn" href="#" class="btn-sms-notify">
+            <i class="fa-solid fa-comment-sms"></i> <span id="sms-notify-label">Notify Your Technician</span>
+          </a>
+          <div class="notify-note" id="notify-note">Tap to send your booking details directly to your technician via text</div>
+        </div>
         <div class="confirm-actions">
           <a id="cal-link" href="#" target="_blank" class="btn-secondary">
             <i class="fa-solid fa-calendar-plus" aria-hidden="true"></i>&nbsp; Add to Calendar
@@ -2631,8 +2653,64 @@
       ).join('');
 
       document.getElementById('cal-link').href = buildCalendarLink(booking);
+
+      // Build SMS notify button
+      buildSmsNotifyBtn(booking);
+
       document.getElementById('booking-confirmation').classList.remove('hidden');
       document.getElementById('booking-confirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function buildSmsNotifyBtn(booking) {
+      const btn = document.getElementById('sms-notify-btn');
+      const label = document.getElementById('sms-notify-label');
+      const note = document.getElementById('notify-note');
+      const wrapper = document.getElementById('notify-wrapper');
+
+      // Find the phone for the selected tech
+      const techId = booking.technician
+        ? Object.keys(TECH_PHONES).find(k => TECH_PHONES[k] && booking.technician.toLowerCase().startsWith(k))
+        : null;
+      const phone = techId ? TECH_PHONES[techId] : null;
+
+      if (!phone) {
+        // No specific tech — send to salon main line
+        const salonNum = '9284863524';
+        label.textContent = 'Notify Nail Nook';
+        note.textContent = 'Send your booking details to the salon';
+        const body = buildSmsBody(booking, 'the salon');
+        btn.href = 'sms:+1' + salonNum + '?body=' + encodeURIComponent(body);
+        return;
+      }
+
+      label.textContent = 'Notify ' + booking.technician;
+      note.textContent = 'Tap to send your booking details directly to ' + booking.technician + ' via text';
+      const body = buildSmsBody(booking, booking.technician);
+      btn.href = 'sms:+1' + phone.tel + '?body=' + encodeURIComponent(body);
+
+      // Mark as sent after click
+      btn.addEventListener('click', function onSend() {
+        setTimeout(() => {
+          btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message Sent to ' + booking.technician + '!';
+          btn.style.background = '#3a8050';
+          btn.style.pointerEvents = 'none';
+        }, 800);
+        btn.removeEventListener('click', onSend);
+      });
+    }
+
+    function buildSmsBody(booking, techName) {
+      const dateStr = new Date(booking.date + 'T12:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+      return (
+        'New Booking — Nail Nook & More\n\n' +
+        'Client: ' + booking.name + '\n' +
+        'Phone: ' + booking.phone + '\n' +
+        'Service: ' + booking.service + '\n' +
+        'Date: ' + dateStr + '\n' +
+        'Time: ' + booking.timeSlot + '\n' +
+        (booking.specialRequests ? 'Notes: ' + booking.specialRequests + '\n' : '') +
+        '\nBooked via nailnookandmore.com'
+      );
     }
 
     function sendBookingNotification(booking) {
@@ -2655,6 +2733,10 @@
       document.getElementById('booking-form').reset();
       document.getElementById('booking-confirmation').classList.add('hidden');
       document.getElementById('booking-form-wrapper').classList.remove('hidden');
+      // Reset SMS notify button
+      const btn = document.getElementById('sms-notify-btn');
+      btn.innerHTML = '<i class="fa-solid fa-comment-sms"></i> <span id="sms-notify-label">Notify Your Technician</span>';
+      btn.style.background = ''; btn.style.pointerEvents = '';
       document.querySelectorAll('.field-error').forEach(e => e.classList.remove('show'));
       document.querySelectorAll('.invalid').forEach(e => e.classList.remove('invalid'));
       document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
