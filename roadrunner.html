@@ -11,16 +11,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #0a1628;
-      --navy2:  #0f2040;
-      --blue:   #1565c0;
-      --teal:   #00b4d8;
-      --gold:   #f4a261;
-      --gold2:  #e07b3a;
-      --white:  #ffffff;
-      --gray:   #f0f4f8;
-      --text:   #1a2535;
-      --muted:  #6b7a8d;
+      --teal:    #2f4f4f;
+      --teal2:   #406868;
+      --teal3:   #1e3535;
+      --teal-lt: #4a8080;
+      --white:   #ffffff;
+      --gray:    #f1f1f1;
+      --gray2:   #e8e8e8;
+      --text:    #1b1b1b;
+      --muted:   #595959;
     }
 
     html { scroll-behavior: smooth; }
@@ -40,25 +39,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 5%;
+      padding: 0.75rem 5%;
       background: transparent;
       transition: background 0.3s, box-shadow 0.3s;
     }
     nav.scrolled {
-      background: var(--navy);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+      background: var(--teal);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.35);
     }
-    .nav-logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.35rem;
-      color: var(--white);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
+    .nav-logo img {
+      height: 60px;
+      object-fit: contain;
+      display: block;
     }
-    .nav-logo span { color: var(--gold); }
     .nav-links {
       display: flex;
       align-items: center;
@@ -66,27 +59,27 @@
       list-style: none;
     }
     .nav-links a {
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       text-decoration: none;
       font-weight: 600;
       font-size: 0.9rem;
       letter-spacing: 0.04em;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--white); text-decoration: underline; }
     .btn-nav {
-      background: var(--gold);
-      color: var(--navy) !important;
+      background: var(--white) !important;
+      color: var(--teal) !important;
       padding: 0.5rem 1.25rem;
       border-radius: 50px;
       font-weight: 700 !important;
       transition: background 0.2s, transform 0.15s !important;
+      text-decoration: none !important;
     }
-    .btn-nav:hover { background: var(--gold2) !important; transform: translateY(-1px); }
+    .btn-nav:hover { background: var(--gray) !important; transform: translateY(-1px); }
 
-    /* hamburger */
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: 0.3s; }
+    .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; }
 
     /* ── HERO ───────────────────────────────────────────── */
     #hero {
@@ -97,37 +90,42 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background: var(--navy);
+      background: var(--teal3);
     }
     .hero-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #0a1628 0%, #0e2a5c 35%, #006994 65%, #00b4d8 100%);
-      animation: heroShift 8s ease-in-out infinite alternate;
+      background: linear-gradient(135deg, #1a3030 0%, #2f4f4f 45%, #3d6b6b 80%, #4a8080 100%);
+      animation: heroShift 9s ease-in-out infinite alternate;
     }
     @keyframes heroShift {
-      0%   { opacity: 1; background-position: 0% 50%; }
-      100% { opacity: 0.85; filter: hue-rotate(15deg); }
+      0%   { opacity: 1; }
+      100% { opacity: 0.88; filter: brightness(1.08); }
     }
     .hero-waves {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 120px;
+      height: 110px;
       overflow: hidden;
     }
     .hero-waves svg { width: 100%; height: 100%; }
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 800px;
+      max-width: 820px;
       padding: 2rem;
     }
+    .hero-logo {
+      margin: 0 auto 2rem;
+      max-width: 280px;
+    }
+    .hero-logo img { width: 100%; }
     .hero-badge {
       display: inline-block;
-      background: rgba(0,180,216,0.25);
-      border: 1px solid rgba(0,180,216,0.5);
-      color: var(--teal);
-      font-size: 0.8rem;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -137,34 +135,33 @@
     }
     .hero-title {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-size: clamp(2rem, 5vw, 3.8rem);
       font-weight: 800;
       color: var(--white);
       line-height: 1.15;
       margin-bottom: 1.25rem;
     }
-    .hero-title .accent { color: var(--gold); }
     .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: rgba(255,255,255,0.75);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,0.78);
       margin-bottom: 2.5rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .btn-primary {
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--white);
+      color: var(--teal);
       padding: 0.85rem 2.2rem;
       border-radius: 50px;
       font-weight: 700;
       font-size: 1rem;
       text-decoration: none;
       transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-      box-shadow: 0 4px 20px rgba(244,162,97,0.35);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     }
-    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(244,162,97,0.45); }
+    .btn-primary:hover { background: var(--gray); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
     .btn-outline {
-      border: 2px solid rgba(255,255,255,0.6);
+      border: 2px solid rgba(255,255,255,0.65);
       color: var(--white);
       padding: 0.85rem 2.2rem;
       border-radius: 50px;
@@ -173,15 +170,15 @@
       text-decoration: none;
       transition: border-color 0.2s, background 0.2s, transform 0.15s;
     }
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.12); transform: translateY(-2px); }
     .scroll-arrow {
       position: absolute;
-      bottom: 130px;
+      bottom: 125px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 2;
       animation: bounce 2s infinite;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.45);
       font-size: 1.5rem;
       text-decoration: none;
     }
@@ -191,7 +188,7 @@
     section { padding: 5rem 5%; }
     .section-label {
       display: inline-block;
-      color: var(--teal);
+      color: var(--teal2);
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -202,7 +199,7 @@
       font-family: 'Montserrat', sans-serif;
       font-size: clamp(1.7rem, 3vw, 2.4rem);
       font-weight: 800;
-      color: var(--navy);
+      color: var(--teal3);
       margin-bottom: 1rem;
       line-height: 1.2;
     }
@@ -235,18 +232,15 @@
       text-align: center;
       box-shadow: 0 2px 12px rgba(0,0,0,0.06);
       transition: transform 0.25s, box-shadow 0.25s;
+      border-top: 3px solid var(--teal);
     }
     .feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
-    .feature-icon {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
+    .feature-icon { font-size: 2.4rem; margin-bottom: 1rem; display: block; }
     .feature-card h3 {
       font-family: 'Montserrat', sans-serif;
       font-size: 1rem;
       font-weight: 700;
-      color: var(--navy);
+      color: var(--teal3);
       margin-bottom: 0.4rem;
     }
     .feature-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
@@ -255,35 +249,33 @@
     #fleet { background: var(--white); }
     .fleet-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto;
     }
     .boat-card {
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.09);
       transition: transform 0.25s, box-shadow 0.25s;
       background: var(--white);
+      border: 1px solid var(--gray2);
     }
-    .boat-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,0.14); }
+    .boat-card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(0,0,0,0.13); }
     .boat-img {
       height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 5rem;
-      position: relative;
-      overflow: hidden;
     }
-    .boat-img-1 { background: linear-gradient(135deg, #006994, #00b4d8); }
-    .boat-img-2 { background: linear-gradient(135deg, #0a3d6b, #1565c0); }
-    .boat-img-3 { background: linear-gradient(135deg, #0d2137, #006994); }
+    .boat-img-1 { background: linear-gradient(135deg, #2f4f4f, #4a8080); }
+    .boat-img-2 { background: linear-gradient(135deg, #1e3535, #2f4f4f); }
     .boat-body { padding: 1.5rem; }
     .boat-tag {
       display: inline-block;
-      background: rgba(0,180,216,0.12);
+      background: rgba(47,79,79,0.1);
       color: var(--teal);
       font-size: 0.72rem;
       font-weight: 700;
@@ -297,16 +289,13 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 1.3rem;
       font-weight: 800;
-      color: var(--navy);
+      color: var(--teal3);
       margin-bottom: 0.5rem;
     }
     .boat-capacity {
       font-size: 0.85rem;
       color: var(--muted);
       margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
     }
     .boat-amenities {
       list-style: none;
@@ -326,7 +315,7 @@
     .btn-book {
       display: block;
       text-align: center;
-      background: var(--navy);
+      background: var(--teal);
       color: var(--white);
       padding: 0.75rem;
       border-radius: 10px;
@@ -335,28 +324,29 @@
       font-size: 0.9rem;
       transition: background 0.2s;
     }
-    .btn-book:hover { background: var(--blue); }
+    .btn-book:hover { background: var(--teal2); }
 
     /* ── SERVICES ───────────────────────────────────────── */
-    #services { background: var(--navy); }
+    #services { background: var(--teal); }
+    #services .section-label { color: rgba(255,255,255,0.65); }
     #services .section-title { color: var(--white); }
-    #services .section-sub { color: rgba(255,255,255,0.6); }
+    #services .section-sub { color: rgba(255,255,255,0.65); }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto;
     }
     .service-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: 20px;
       padding: 2.5rem 2rem;
       text-align: center;
       transition: background 0.25s, transform 0.25s;
     }
-    .service-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); }
+    .service-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-4px); }
     .service-icon { font-size: 3rem; display: block; margin-bottom: 1.25rem; }
     .service-card h3 {
       font-family: 'Montserrat', sans-serif;
@@ -365,13 +355,16 @@
       color: var(--white);
       margin-bottom: 0.75rem;
     }
-    .service-card p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
-    .service-card .service-price {
+    .service-card p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
+    .service-duration {
       display: inline-block;
       margin-top: 1.25rem;
-      color: var(--gold);
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.85rem;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
     }
 
     /* ── ABOUT ──────────────────────────────────────────── */
@@ -393,12 +386,12 @@
       font-size: 0.95rem;
       color: var(--text);
     }
-    .about-bullets li .bullet-icon {
-      width: 28px; height: 28px;
+    .bullet-icon {
+      width: 26px; height: 26px;
       background: var(--teal);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: white;
       flex-shrink: 0;
       margin-top: 1px;
@@ -407,30 +400,22 @@
       border-radius: 24px;
       overflow: hidden;
       aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #006994 0%, #00b4d8 50%, #1565c0 100%);
+      background: linear-gradient(135deg, #2f4f4f 0%, #4a8080 60%, #3d6b6b 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      position: relative;
     }
-    .about-visual-inner {
-      text-align: center;
-      color: white;
-    }
-    .about-visual-inner .big-icon { font-size: 6rem; display: block; margin-bottom: 1rem; }
+    .about-visual-inner { text-align: center; color: white; }
+    .about-visual-inner .big-icon { font-size: 5rem; display: block; margin-bottom: 1rem; }
     .about-visual-inner p { font-size: 1.1rem; font-weight: 600; opacity: 0.9; }
-    .about-stat-row {
-      display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+    .about-stat-row { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
     .about-stat h4 {
       font-family: 'Montserrat', sans-serif;
       font-size: 2rem;
       font-weight: 800;
-      color: var(--blue);
+      color: var(--teal);
     }
-    .about-stat p { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+    .about-stat p { font-size: 0.78rem; color: var(--muted); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
 
     /* ── TESTIMONIALS ───────────────────────────────────── */
     #testimonials { background: var(--white); }
@@ -439,16 +424,17 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       max-width: 1100px;
-      margin: 0 auto;
+      margin: 0 auto 3rem;
     }
     .testi-card {
       background: var(--gray);
       border-radius: 20px;
       padding: 2rem;
       transition: transform 0.25s, box-shadow 0.25s;
+      border-left: 4px solid var(--teal);
     }
     .testi-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-    .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 1rem; }
+    .stars { color: #f4a800; font-size: 1.1rem; margin-bottom: 1rem; }
     .testi-card blockquote {
       font-size: 0.95rem;
       color: var(--text);
@@ -466,16 +452,25 @@
       color: white;
       flex-shrink: 0;
     }
-    .av1 { background: linear-gradient(135deg, #006994, #00b4d8); }
-    .av2 { background: linear-gradient(135deg, #1565c0, #006994); }
-    .av3 { background: linear-gradient(135deg, #0a3d6b, #1565c0); }
-    .testi-author-info strong { font-size: 0.9rem; color: var(--navy); display: block; }
+    .av1 { background: var(--teal); }
+    .av2 { background: var(--teal2); }
+    .av3 { background: var(--teal3); }
+    .testi-author-info strong { font-size: 0.9rem; color: var(--teal3); display: block; }
     .testi-author-info span { font-size: 0.8rem; color: var(--muted); }
 
-    /* ── CONTACT ────────────────────────────────────────── */
-    #contact {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    /* ── MAP ────────────────────────────────────────────── */
+    .map-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.1);
     }
+    .map-wrapper iframe { display: block; width: 100%; height: 380px; border: none; }
+
+    /* ── CONTACT ────────────────────────────────────────── */
+    #contact { background: var(--teal3); }
+    #contact .section-label { color: rgba(255,255,255,0.55); }
     #contact .section-title { color: var(--white); }
     #contact .section-sub { color: rgba(255,255,255,0.6); }
     .contact-grid {
@@ -486,19 +481,18 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-    .contact-info { }
     .contact-phone {
       font-family: 'Montserrat', sans-serif;
       font-size: 2.2rem;
       font-weight: 800;
-      color: var(--gold);
+      color: var(--white);
       text-decoration: none;
       display: block;
       margin: 1.5rem 0 0.5rem;
-      transition: color 0.2s;
+      transition: opacity 0.2s;
     }
-    .contact-phone:hover { color: var(--gold2); }
-    .contact-address { color: rgba(255,255,255,0.55); font-size: 0.95rem; margin-bottom: 2rem; }
+    .contact-phone:hover { opacity: 0.8; }
+    .contact-address { color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-bottom: 2rem; }
     .contact-detail {
       display: flex;
       align-items: center;
@@ -507,17 +501,11 @@
       font-size: 0.9rem;
       margin-bottom: 0.75rem;
     }
-    .contact-detail .icon { font-size: 1.1rem; }
-    /* form */
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     input, textarea {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 10px;
       padding: 0.85rem 1.1rem;
       color: var(--white);
@@ -528,14 +516,11 @@
       width: 100%;
     }
     input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.35); }
-    input:focus, textarea:focus {
-      border-color: var(--teal);
-      background: rgba(255,255,255,0.12);
-    }
+    input:focus, textarea:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.13); }
     textarea { resize: vertical; min-height: 120px; }
     .btn-submit {
-      background: var(--gold);
-      color: var(--navy);
+      background: var(--white);
+      color: var(--teal3);
       border: none;
       padding: 0.9rem 2rem;
       border-radius: 10px;
@@ -544,12 +529,13 @@
       cursor: pointer;
       transition: background 0.2s, transform 0.15s;
       align-self: flex-start;
+      font-family: 'Open Sans', sans-serif;
     }
-    .btn-submit:hover { background: var(--gold2); transform: translateY(-1px); }
+    .btn-submit:hover { background: var(--gray); transform: translateY(-1px); }
 
     /* ── FOOTER ─────────────────────────────────────────── */
     footer {
-      background: #060e1a;
+      background: #0f2020;
       padding: 3rem 5% 2rem;
     }
     .footer-top {
@@ -562,13 +548,8 @@
       border-bottom: 1px solid rgba(255,255,255,0.08);
       margin-bottom: 1.5rem;
     }
-    .footer-brand p {
-      color: rgba(255,255,255,0.45);
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      max-width: 260px;
-      line-height: 1.6;
-    }
+    .footer-brand img { height: 55px; object-fit: contain; margin-bottom: 0.75rem; }
+    .footer-brand p { color: rgba(255,255,255,0.4); font-size: 0.85rem; max-width: 260px; line-height: 1.6; }
     .footer-links h4 {
       color: var(--white);
       font-family: 'Montserrat', sans-serif;
@@ -579,31 +560,16 @@
       margin-bottom: 0.85rem;
     }
     .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
-    .footer-links a {
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--gold); }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
-    .footer-phone {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
+    .footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom p { color: rgba(255,255,255,0.28); font-size: 0.8rem; }
+    .footer-phone { color: rgba(255,255,255,0.55); text-decoration: none; font-weight: 700; font-size: 0.9rem; }
+    .footer-phone:hover { color: var(--white); }
 
     /* ── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 768px) {
-      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--navy); padding: 1.5rem 5%; gap: 1rem; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--teal); padding: 1.5rem 5%; gap: 1rem; }
       .nav-links.open { display: flex; }
       .hamburger { display: flex; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -619,7 +585,9 @@
 
   <!-- NAVBAR -->
   <nav id="navbar">
-    <a href="#hero" class="nav-logo">&#x1F6A4; Road<span>Runner</span></a>
+    <a href="#hero" class="nav-logo">
+      <img src="https://img1.wsimg.com/isteam/ip/e244fd6f-4332-4f07-95ac-daeeff68937a/0.png" alt="Havasu RoadRunner Boat Rentals" />
+    </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#fleet">Fleet</a></li>
@@ -636,11 +604,12 @@
   <section id="hero">
     <div class="hero-gradient"></div>
     <div class="hero-content">
+      <div class="hero-logo">
+        <img src="https://img1.wsimg.com/isteam/ip/e244fd6f-4332-4f07-95ac-daeeff68937a/0.png" alt="Havasu RoadRunner Boat Rentals" />
+      </div>
       <div class="hero-badge">&#x1F30A; Lake Havasu City, AZ</div>
-      <h1 class="hero-title">
-        Explore Lake Havasu with Our<br><span class="accent">Pontoon Rentals</span>
-      </h1>
-      <p class="hero-sub">Great service and new boats for your adventure. Whether it's a family day out, a sunset cruise, or a weekend escape — we've got you covered.</p>
+      <h1 class="hero-title">Explore Lake Havasu with Our Pontoon Rentals</h1>
+      <p class="hero-sub">Great service and new boats for your adventure. Whether it's a family day out or a weekend escape — we've got you covered.</p>
       <div class="hero-btns">
         <a href="#contact" class="btn-primary">&#x1F4C5; Book a Pontoon</a>
         <a href="#fleet" class="btn-outline">View Our Fleet</a>
@@ -648,8 +617,8 @@
     </div>
     <a href="#features" class="scroll-arrow">&#x2193;</a>
     <div class="hero-waves">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z" fill="#f0f4f8"/>
+      <svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,55 C240,110 480,0 720,55 C960,110 1200,0 1440,55 L1440,110 L0,110 Z" fill="#f1f1f1"/>
       </svg>
     </div>
   </section>
@@ -665,7 +634,7 @@
       <div class="feature-card">
         <span class="feature-icon">&#x1F3D6;&#xFE0F;</span>
         <h3>Lake Havasu Locals</h3>
-        <p>We know every cove, sandbar, and sunset spot — and we'll share them with you.</p>
+        <p>We know every cove, sandbar, and spot — and we'll share them with you.</p>
       </div>
       <div class="feature-card">
         <span class="feature-icon">&#x1F4F1;</span>
@@ -684,8 +653,8 @@
   <section id="fleet">
     <div class="section-header centered">
       <span class="section-label">Our Fleet</span>
-      <h2 class="section-title">Choose Your Perfect Boat</h2>
-      <p class="section-sub">New pontoons ready for any adventure — from calm cruises to full-day parties on the water.</p>
+      <h2 class="section-title">Our Pontoon Boats</h2>
+      <p class="section-sub">New, well-maintained pontoons ready for any adventure on Lake Havasu.</p>
     </div>
     <div class="fleet-grid">
       <div class="boat-card">
@@ -695,9 +664,9 @@
           <h3>The Havasu Cruiser</h3>
           <p class="boat-capacity">&#x1F465; Up to 10 passengers</p>
           <ul class="boat-amenities">
-            <li>Spacious upper sun deck</li>
+            <li>Spacious sun deck</li>
             <li>Bluetooth stereo system</li>
-            <li>Cooler & shade canopy included</li>
+            <li>Cooler &amp; shade canopy included</li>
             <li>Life jackets for all guests</li>
           </ul>
           <a href="#contact" class="btn-book">Book This Boat</a>
@@ -711,24 +680,9 @@
           <p class="boat-capacity">&#x1F465; Up to 12 passengers</p>
           <ul class="boat-amenities">
             <li>Extra-wide lounging deck</li>
-            <li>Slide and swim platform</li>
+            <li>Swim platform &amp; ladder</li>
             <li>Premium sound system</li>
-            <li>Bimini top & anchor included</li>
-          </ul>
-          <a href="#contact" class="btn-book">Book This Boat</a>
-        </div>
-      </div>
-      <div class="boat-card">
-        <div class="boat-img boat-img-3">&#x1F305;</div>
-        <div class="boat-body">
-          <span class="boat-tag">Sunset Special</span>
-          <h3>The Sunset Glider</h3>
-          <p class="boat-capacity">&#x1F465; Up to 8 passengers</p>
-          <ul class="boat-amenities">
-            <li>Intimate, cozy layout</li>
-            <li>LED mood lighting</li>
-            <li>Perfect for couples & small groups</li>
-            <li>Captain-guided sunset option</li>
+            <li>Bimini top &amp; anchor included</li>
           </ul>
           <a href="#contact" class="btn-book">Book This Boat</a>
         </div>
@@ -739,28 +693,22 @@
   <!-- SERVICES -->
   <section id="services">
     <div class="section-header centered">
-      <span class="section-label" style="color:var(--teal)">What We Offer</span>
-      <h2 class="section-title">Rental Packages</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.55)">Flexible options so you can enjoy the lake on your terms.</p>
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Rental Options</h2>
+      <p class="section-sub">Flexible packages so you can enjoy the lake on your terms.</p>
     </div>
     <div class="services-grid">
       <div class="service-card">
         <span class="service-icon">&#x2600;&#xFE0F;</span>
         <h3>Half-Day Rental</h3>
         <p>4 hours on the water — perfect for a morning adventure or an afternoon escape with the family.</p>
-        <span class="service-price">Contact for pricing</span>
+        <span class="service-duration">4 Hours</span>
       </div>
       <div class="service-card">
         <span class="service-icon">&#x1F30D;</span>
         <h3>Full-Day Rental</h3>
         <p>8 hours of pure lake freedom. Explore every corner of Lake Havasu at your own pace.</p>
-        <span class="service-price">Contact for pricing</span>
-      </div>
-      <div class="service-card">
-        <span class="service-icon">&#x1F305;</span>
-        <h3>Sunset Cruise</h3>
-        <p>2–3 hours during golden hour for an unforgettable view of the Arizona sunset over the water.</p>
-        <span class="service-price">Contact for pricing</span>
+        <span class="service-duration">8 Hours</span>
       </div>
     </div>
   </section>
@@ -779,7 +727,7 @@
           </li>
           <li>
             <span class="bullet-icon">&#x2714;</span>
-            <span>New, well-maintained pontoons with safety gear included</span>
+            <span>New, well-maintained pontoons with all safety gear included</span>
           </li>
           <li>
             <span class="bullet-icon">&#x2714;</span>
@@ -793,15 +741,15 @@
         <div class="about-stat-row">
           <div class="about-stat">
             <h4>100%</h4>
-            <p>NEW BOATS</p>
+            <p>New Boats</p>
           </div>
           <div class="about-stat">
             <h4>5&#x2605;</h4>
-            <p>SERVICE RATING</p>
+            <p>Service Rating</p>
           </div>
           <div class="about-stat">
-            <h4>AZ</h4>
-            <p>LAKE HAVASU NATIVE</p>
+            <h4>LHC</h4>
+            <p>Lake Havasu Local</p>
           </div>
         </div>
       </div>
@@ -814,7 +762,7 @@
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- TESTIMONIALS + MAP -->
   <section id="testimonials">
     <div class="section-header centered">
       <span class="section-label">Happy Customers</span>
@@ -846,7 +794,7 @@
       </div>
       <div class="testi-card">
         <div class="stars">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</div>
-        <blockquote>"Did the sunset cruise and it was magical. The boat was perfect, the sunset was insane, and the whole experience felt premium. Already booked our next trip."</blockquote>
+        <blockquote>"Rented for a half-day and it was the highlight of our trip. The pontoon was clean, spacious, and the team was super friendly. 10/10 experience!"</blockquote>
         <div class="testi-author">
           <div class="testi-avatar av3">SL</div>
           <div class="testi-author-info">
@@ -856,6 +804,17 @@
         </div>
       </div>
     </div>
+
+    <!-- Google Map -->
+    <div class="map-wrapper">
+      <iframe
+        title="Lake Havasu City Map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26572.38!2d-114.3224!3d34.4839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80cd4bbb3ee90e5f%3A0x25ab74e2a35f0ce8!2sLake%20Havasu%20City%2C%20AZ!5e0!3m2!1sen!2sus!4v1700000000000"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -863,13 +822,13 @@
     <div class="contact-grid">
       <div class="contact-info">
         <span class="section-label">Get In Touch</span>
-        <h2 class="section-title" style="color:white">Ready to Hit the Water?</h2>
-        <p class="section-sub" style="color:rgba(255,255,255,0.6); margin-bottom:0">Call us or send a message and we'll set up your perfect day on Lake Havasu.</p>
+        <h2 class="section-title">Ready to Hit the Water?</h2>
+        <p class="section-sub">Call us or send a message and we'll set up your perfect day on Lake Havasu.</p>
         <a href="tel:9499033993" class="contact-phone">(949) 903-3993</a>
         <p class="contact-address">Lake Havasu City, AZ, USA</p>
-        <div class="contact-detail"><span class="icon">&#x1F4DE;</span> Call or text anytime</div>
-        <div class="contact-detail"><span class="icon">&#x1F552;</span> Available 7 days a week</div>
-        <div class="contact-detail"><span class="icon">&#x1F4CD;</span> Lake Havasu City, AZ</div>
+        <div class="contact-detail"><span>&#x1F4DE;</span> Call or text anytime</div>
+        <div class="contact-detail"><span>&#x1F552;</span> Available 7 days a week</div>
+        <div class="contact-detail"><span>&#x1F4CD;</span> Lake Havasu City, AZ</div>
       </div>
       <form onsubmit="handleSubmit(event)">
         <div class="form-row">
@@ -888,7 +847,7 @@
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="#hero" class="nav-logo" style="text-decoration:none">&#x1F6A4; Road<span>Runner</span></a>
+        <img src="https://img1.wsimg.com/isteam/ip/e244fd6f-4332-4f07-95ac-daeeff68937a/0.png" alt="Havasu RoadRunner Boat Rentals" />
         <p>Unforgettable pontoon rental experiences on Lake Havasu City, AZ. New boats, top-notch service, local expertise.</p>
       </div>
       <div class="footer-links">
@@ -916,25 +875,21 @@
   </footer>
 
   <script>
-    // Navbar scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Mobile nav toggle
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
 
-    // Close nav on link click (mobile)
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('open');
       });
     });
 
-    // Form submit placeholder
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.btn-submit');
