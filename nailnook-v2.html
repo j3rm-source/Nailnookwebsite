@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nail Nook and More — Premier Nail Salon in Lake Havasu City, AZ. Book your appointment online.">
+  <title>Nail Nook and More | Lake Havasu City, AZ</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ============================
+       RESET & ROOT VARIABLES
+    ============================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-bg:          #fff8f9;
+      --color-surface:     #fff0f3;
+      --color-surface-alt: #fce8ed;
+      --color-rose:        #d4849a;
+      --color-rose-light:  #f0b8c8;
+      --color-gold:        #b87a8a;
+      --color-gold-dark:   #8c5a68;
+      --color-text:        #2d1a22;
+      --color-text-muted:  #7a5060;
+      --color-success:     #6aab88;
+      --color-error:       #c0524a;
+      --shadow-soft:       0 4px 20px rgba(180,120,138,0.12);
+      --shadow-card:       0 2px 12px rgba(180,120,138,0.1);
+      --radius:            12px;
+      --transition:        0.3s ease;
+      --nav-height:        72px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ============================
+       TYPOGRAPHY
+    ============================ */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      margin-bottom: 3rem;
+    }
+    .ornament {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; margin-bottom: 0.75rem;
+    }
+    .ornament::before, .ornament::after {
+      content: ''; flex: 1; max-width: 80px; height: 1px;
+      background: linear-gradient(to right, transparent, var(--color-rose));
+    }
+    .ornament::after { background: linear-gradient(to left, transparent, var(--color-rose)); }
+    .ornament i { color: var(--color-rose); font-size: 0.9rem; }
+
+    /* ============================
+       LAYOUT
+    ============================ */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 6rem 0; }
+
+    /* ============================
+       BUTTONS
+    ============================ */
+    .btn-primary, .btn-secondary, .btn-ghost {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: 2px solid transparent;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .btn-primary {
+      background: var(--color-rose);
+      color: #fff;
+      border-color: var(--color-rose);
+    }
+    .btn-primary:hover {
+      background: var(--color-gold);
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(180,120,138,0.3);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-gold-dark);
+      border-color: var(--color-gold);
+    }
+    .btn-secondary:hover {
+      background: var(--color-rose);
+      color: #fff;
+      border-color: var(--color-rose);
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-text-muted);
+      border-color: transparent;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    .btn-ghost:hover { color: var(--color-rose); }
+
+    /* ============================
+       NAVIGATION
+    ============================ */
+    #main-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      background: rgba(255, 248, 249, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-rose-light);
+      display: flex; align-items: center;
+      box-shadow: 0 2px 16px rgba(180,120,138,0.08);
+    }
+    #main-nav .container {
+      display: flex; align-items: center;
+      justify-content: space-between; width: 100%;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--color-text);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-logo i { color: var(--color-rose); font-size: 1.1rem; }
+    .nav-logo span { color: var(--color-gold-dark); }
+
+    #nav-links {
+      display: flex; align-items: center;
+      gap: 2rem; list-style: none;
+    }
+    #nav-links a {
+      text-decoration: none;
+      color: var(--color-text-muted);
+      font-size: 0.92rem; font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+      position: relative;
+    }
+    #nav-links a::after {
+      content: ''; position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 2px;
+      background: var(--color-rose);
+      transition: width var(--transition);
+    }
+    #nav-links a:hover { color: var(--color-rose); }
+    #nav-links a:hover::after { width: 100%; }
+    #nav-links .nav-book a {
+      background: var(--color-rose); color: #fff;
+      padding: 0.45rem 1.2rem; border-radius: 6px;
+    }
+    #nav-links .nav-book a::after { display: none; }
+    #nav-links .nav-book a:hover { background: var(--color-gold); color: #fff; }
+
+    #hamburger {
+      display: none; flex-direction: column;
+      gap: 5px; cursor: pointer; padding: 4px;
+      background: none; border: none;
+    }
+    #hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--color-text); border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* ============================
+       HERO
+    ============================ */
+    #hero {
+      min-height: 100vh;
+      padding-top: var(--nav-height);
+      display: flex; align-items: center;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(212,132,154,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(184,122,138,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(240,184,200,0.08) 0%, transparent 70%),
+        var(--color-bg);
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(212,132,154,0.06) 1px, transparent 1px);
+      background-size: 40px 40px; pointer-events: none;
+    }
+    .hero-content {
+      text-align: center; max-width: 700px;
+      margin: 0 auto; position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--color-surface-alt);
+      color: var(--color-gold-dark);
+      border: 1px solid var(--color-rose-light);
+      padding: 0.35rem 1.2rem; border-radius: 50px;
+      font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    .hero-title .line1 { color: var(--color-text); display: block; }
+    .hero-title .line2 { color: var(--color-rose); display: block; font-style: italic; }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--color-text-muted);
+      margin-bottom: 2.5rem; font-weight: 300;
+    }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .hero-deco {
+      position: absolute; border-radius: 50%; pointer-events: none;
+    }
+    .hero-deco-1 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(212,132,154,0.12) 0%, transparent 70%);
+      top: 10%; right: 5%; animation: float 7s ease-in-out infinite;
+    }
+    .hero-deco-2 {
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(184,122,138,0.1) 0%, transparent 70%);
+      bottom: 15%; left: 5%; animation: float 5s ease-in-out infinite reverse;
+      animation-delay: -2s;
+    }
+    .hero-deco-3 {
+      width: 120px; height: 120px;
+      background: radial-gradient(circle, rgba(240,184,200,0.15) 0%, transparent 70%);
+      top: 40%; left: 10%; animation: float 9s ease-in-out infinite;
+      animation-delay: -4s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* ============================
+       SERVICES
+    ============================ */
+    #services { background: var(--color-surface-alt); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--color-bg);
+      border: 1px solid rgba(212,132,154,0.2);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      transition: all var(--transition);
+      cursor: pointer;
+      opacity: 0; transform: translateY(30px);
+    }
+    .service-card.visible { opacity: 1; transform: translateY(0); }
+    .service-card:hover {
+      border-color: var(--color-rose);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(212,132,154,0.18);
+    }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: var(--color-surface-alt);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .service-icon i { color: var(--color-rose); font-size: 1.2rem; }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; color: var(--color-text); margin-bottom: 0.3rem;
+    }
+    .service-desc { font-size: 0.88rem; color: var(--color-text-muted); line-height: 1.5; }
+    .services-cta { text-align: center; margin-top: 2.5rem; }
+
+    /* ============================
+       SPECIALISTS SECTION
+    ============================ */
+    #specialists { background: var(--color-bg); }
+
+    .specialists-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 1.8rem;
+    }
+    .spec-card {
+      background: var(--color-surface);
+      border: 1px solid rgba(212,132,154,0.2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+      opacity: 0; transform: translateY(30px);
+    }
+    .spec-card.visible { opacity: 1; transform: translateY(0); }
+    .spec-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(212,132,154,0.22);
+      border-color: var(--color-rose);
+    }
+    .spec-photo {
+      height: 190px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden; cursor: pointer;
+    }
+    .spec-photo img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top; z-index: 1;
+    }
+    .spec-initials {
+      width: 82px; height: 82px;
+      background: rgba(255,255,255,0.32);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; color: #fff;
+      border: 3px solid rgba(255,255,255,0.55);
+      position: relative; z-index: 2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .spec-photo-hint {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(45,26,34,0.55); color: #fff;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      text-align: center; padding: 0.38rem;
+      opacity: 0; transition: opacity var(--transition); z-index: 3;
+      pointer-events: none;
+    }
+    .spec-photo:hover .spec-photo-hint { opacity: 1; }
+    .spec-body { padding: 1.2rem 1.4rem 0.5rem; }
+    .spec-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.12rem; color: var(--color-text); margin-bottom: 0.15rem;
+    }
+    .spec-title {
+      font-size: 0.74rem; color: var(--color-gold-dark); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.55rem;
+    }
+    .spec-phone {
+      display: flex; align-items: center; gap: 0.35rem;
+      font-size: 0.9rem; color: var(--color-text);
+      text-decoration: none; font-weight: 700;
+      margin-bottom: 0.7rem; transition: color var(--transition);
+    }
+    .spec-phone i { color: var(--color-rose); font-size: 0.78rem; }
+    .spec-phone:hover { color: var(--color-rose); }
+    .spec-desc {
+      font-size: 0.82rem; color: var(--color-text-muted);
+      line-height: 1.6; margin-bottom: 0.2rem;
+    }
+    .spec-actions { display: flex; gap: 0.5rem; padding: 0.8rem 1.4rem 1.2rem; }
+    .spec-view-btn {
+      flex: 1; padding: 0.55rem 0.4rem;
+      background: transparent;
+      border: 1.5px solid var(--color-gold);
+      color: var(--color-gold-dark);
+      border-radius: 7px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; transition: all var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.3rem;
+    }
+    .spec-view-btn:hover { background: var(--color-rose); border-color: var(--color-rose); color: #fff; }
+    .spec-book-btn {
+      flex: 1; padding: 0.55rem 0.4rem;
+      background: var(--color-rose);
+      border: 1.5px solid var(--color-rose);
+      color: #fff;
+      border-radius: 7px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      cursor: pointer; transition: all var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.3rem;
+    }
+    .spec-book-btn:hover { background: var(--color-gold); border-color: var(--color-gold); transform: translateY(-1px); }
+
+    /* ============================
+       GALLERY CAROUSEL
+    ============================ */
+    #gallery { background: var(--color-surface-alt); }
+
+    .gallery-carousel-wrap {
+      position: relative;
+      max-width: 840px;
+      margin: 0 auto 1.5rem;
+    }
+    .carousel-stage {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 4px solid var(--color-rose-light);
+      box-shadow:
+        0 8px 40px rgba(180,120,138,0.28),
+        inset 0 0 0 6px rgba(240,184,200,0.14);
+    }
+    .carousel-slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity 0.65s ease;
+    }
+    .carousel-slide.active { opacity: 1; }
+    .carousel-slide img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .carousel-slide-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(45,26,34,0.72), transparent);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      padding: 2rem 1.6rem 1rem;
+      pointer-events: none;
+    }
+    .carousel-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 46px; height: 46px;
+      background: rgba(255,248,249,0.93);
+      border: 2px solid var(--color-rose-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--color-gold-dark);
+      font-size: 1rem; transition: all var(--transition);
+      z-index: 5;
+      box-shadow: 0 2px 14px rgba(180,120,138,0.22);
+    }
+    .carousel-arrow:hover { background: var(--color-rose); color: #fff; border-color: var(--color-rose); }
+    .carousel-arrow.prev { left: -23px; }
+    .carousel-arrow.next { right: -23px; }
+
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 6px;
+      margin: 1rem 0 1.4rem;
+    }
+    .carousel-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--color-rose-light);
+      cursor: pointer; transition: all var(--transition);
+      border: none; padding: 0;
+    }
+    .carousel-dot.active { background: var(--color-rose); transform: scale(1.35); }
+
+    .carousel-thumbs {
+      display: flex; gap: 0.5rem;
+      overflow-x: auto; padding: 0.2rem 0;
+      scrollbar-width: none;
+      justify-content: center;
+    }
+    .carousel-thumbs::-webkit-scrollbar { display: none; }
+    .carousel-thumb {
+      flex-shrink: 0;
+      width: 82px; height: 62px;
+      border-radius: 8px; overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all var(--transition); opacity: 0.65;
+    }
+    .carousel-thumb.active { border-color: var(--color-rose); opacity: 1; }
+    .carousel-thumb:hover { opacity: 1; }
+    .carousel-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .gallery-cta { text-align: center; margin-top: 2.5rem; }
+
+    /* ============================
+       LOCATION / MAPS
+    ============================ */
+    #location { background: var(--color-bg); padding: 5rem 0 0; }
+    .location-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 2rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .location-info {
+      background: var(--color-surface);
+      border: 1px solid rgba(212,132,154,0.2);
+      border-radius: var(--radius); padding: 2rem;
+    }
+    .location-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--color-text);
+    }
+    .info-item {
+      display: flex; gap: 1rem;
+      margin-bottom: 1.2rem; align-items: flex-start;
+    }
+    .info-item i {
+      color: var(--color-rose); font-size: 0.95rem;
+      margin-top: 0.15rem; flex-shrink: 0;
+      width: 16px; text-align: center;
+    }
+    .info-item .info-text { font-size: 0.92rem; color: var(--color-text-muted); }
+    .info-item .info-text strong { color: var(--color-text); display: block; margin-bottom: 0.2rem; }
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+    .hours-table td { padding: 0.3rem 0; font-size: 0.88rem; color: var(--color-text-muted); }
+    .hours-table td:last-child { text-align: right; color: var(--color-text); }
+    .map-container {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(212,132,154,0.2);
+    }
+    .map-container iframe {
+      display: block; width: 100%; height: 380px;
+      filter: sepia(10%) saturate(1.1);
+    }
+    .map-fullwidth {
+      width: 100%;
+      border-top: 3px solid var(--color-rose-light);
+    }
+    .map-fullwidth iframe {
+      display: block; width: 100%; height: 420px;
+      filter: sepia(10%) saturate(1.1);
+    }
+
+    /* ============================
+       FOOTER
+    ============================ */
+    footer {
+      background: #2d1a22;
+      color: rgba(255,248,249,0.7);
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem; margin-bottom: 3rem;
+    }
+    .footer-brand .nav-logo { color: rgba(255,248,249,0.9); margin-bottom: 1rem; display: flex; }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h4 {
+      font-family: 'Playfair Display', serif;
+      color: rgba(255,248,249,0.9);
+      font-size: 1rem; margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer-col ul a {
+      text-decoration: none;
+      color: rgba(255,248,249,0.6);
+      font-size: 0.88rem; transition: color var(--transition);
+    }
+    .footer-col ul a:hover { color: var(--color-rose-light); }
+    .social-links { display: flex; gap: 0.8rem; margin-top: 1rem; }
+    .social-links a {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,248,249,0.7);
+      text-decoration: none; font-size: 1rem;
+      transition: all var(--transition);
+    }
+    .social-links a:hover { background: var(--color-rose); color: #fff; transform: translateY(-2px); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,248,249,0.1);
+      padding-top: 2rem; text-align: center; font-size: 0.82rem;
+    }
+
+    /* ============================
+       CHATBOT WIDGET
+    ============================ */
+    #chatbot-toggle {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+      width: 64px; height: 64px;
+      background: var(--color-rose); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(212,132,154,0.5);
+      transition: all var(--transition); border: none;
+      animation: pulse-ring 3s ease-in-out infinite;
+    }
+    #chatbot-toggle:hover { background: var(--color-gold); transform: scale(1.08); }
+    #chatbot-toggle i { color: #fff; font-size: 1.6rem; }
+
+    @keyframes pulse-ring {
+      0%, 100% { box-shadow: 0 4px 20px rgba(212,132,154,0.5); }
+      50% { box-shadow: 0 4px 30px rgba(212,132,154,0.8), 0 0 0 10px rgba(212,132,154,0.1); }
+    }
+
+    #chat-label {
+      position: fixed; bottom: 7.8rem; right: 2rem; z-index: 899;
+      background: var(--color-text); color: #fff;
+      padding: 0.48rem 0.9rem; border-radius: 12px;
+      font-size: 0.8rem; font-weight: 700; white-space: nowrap;
+      pointer-events: none;
+      opacity: 0; transform: translateY(8px);
+      transition: all 0.4s ease;
+    }
+    #chat-label::after {
+      content: ''; position: absolute; bottom: -6px; right: 17px;
+      border-left: 6px solid transparent; border-right: 6px solid transparent;
+      border-top: 6px solid var(--color-text);
+    }
+    #chat-label.show { opacity: 1; transform: translateY(0); }
+
+    #chatbot-panel {
+      position: fixed; bottom: 6.5rem; right: 2rem; z-index: 900;
+      width: 360px; max-height: 540px;
+      background: var(--color-bg);
+      border: 1px solid rgba(212,132,154,0.25);
+      border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(180,120,138,0.25);
+      display: flex; flex-direction: column; overflow: hidden;
+      transform: scale(0.85) translateY(20px);
+      transform-origin: bottom right;
+      opacity: 0; pointer-events: none;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    #chatbot-panel.open {
+      transform: scale(1) translateY(0);
+      opacity: 1; pointer-events: all;
+    }
+    .chat-header {
+      background: linear-gradient(135deg, var(--color-rose), var(--color-gold));
+      padding: 1rem 1.2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .chat-header-info { display: flex; align-items: center; gap: 0.7rem; }
+    .chat-avatar {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.25); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .chat-avatar i { color: #fff; font-size: 1rem; }
+    .chat-header-title { color: #fff; font-family: 'Playfair Display', serif; font-size: 1rem; }
+    .chat-header-sub { color: rgba(255,255,255,0.8); font-size: 0.75rem; }
+    .chat-close {
+      background: none; border: none;
+      color: rgba(255,255,255,0.8); cursor: pointer;
+      font-size: 1.1rem; padding: 4px;
+      transition: color var(--transition);
+    }
+    .chat-close:hover { color: #fff; }
+
+    #chat-messages {
+      flex: 1; overflow-y: auto;
+      padding: 1rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+    }
+    #chat-messages::-webkit-scrollbar { width: 4px; }
+    #chat-messages::-webkit-scrollbar-track { background: transparent; }
+    #chat-messages::-webkit-scrollbar-thumb { background: var(--color-rose-light); border-radius: 2px; }
+
+    .chat-msg {
+      max-width: 87%; padding: 0.65rem 0.9rem;
+      border-radius: 12px; font-size: 0.88rem; line-height: 1.5;
+      animation: msgIn 0.2s ease;
+    }
+    @keyframes msgIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .chat-msg.bot {
+      background: var(--color-surface);
+      border: 1px solid rgba(212,132,154,0.2);
+      border-radius: 4px 12px 12px 12px;
+      border-left: 3px solid var(--color-rose);
+      align-self: flex-start; color: var(--color-text);
+    }
+    .chat-msg.user {
+      background: var(--color-rose); color: #fff;
+      border-radius: 12px 4px 12px 12px;
+      align-self: flex-end;
+    }
+
+    .typing-indicator {
+      display: flex; gap: 4px; align-items: center;
+      padding: 0.65rem 0.9rem;
+      background: var(--color-surface);
+      border: 1px solid rgba(212,132,154,0.2);
+      border-left: 3px solid var(--color-rose);
+      border-radius: 4px 12px 12px 12px;
+      align-self: flex-start; width: fit-content;
+    }
+    .typing-indicator span {
+      width: 7px; height: 7px;
+      background: var(--color-rose-light); border-radius: 50%;
+      animation: typing 1.2s ease-in-out infinite;
+    }
+    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40% { transform: translateY(-6px); opacity: 1; }
+    }
+
+    #chat-quick-replies {
+      padding: 0.5rem 1rem;
+      display: flex; flex-wrap: wrap; gap: 0.5rem; flex-shrink: 0;
+    }
+    .quick-reply-btn {
+      padding: 0.4rem 0.9rem;
+      border: 1.5px solid var(--color-gold); border-radius: 50px;
+      background: transparent; color: var(--color-gold-dark);
+      font-family: 'Lato', sans-serif;
+      font-size: 0.82rem; font-weight: 700;
+      cursor: pointer; transition: all var(--transition);
+    }
+    .quick-reply-btn:hover { background: var(--color-rose); border-color: var(--color-rose); color: #fff; }
+
+    /* Chat inline form */
+    .chat-form {
+      padding: 0.6rem;
+      background: var(--color-surface);
+      border: 1px solid rgba(212,132,154,0.2);
+      border-radius: 8px;
+      align-self: flex-start;
+      width: 100%;
+      animation: msgIn 0.2s ease;
+    }
+    .chat-form input {
+      width: 100%; padding: 0.5rem 0.75rem;
+      border: 1.5px solid rgba(212,132,154,0.3);
+      border-radius: 6px;
+      font-family: 'Lato', sans-serif; font-size: 0.85rem;
+      color: var(--color-text); background: var(--color-bg);
+      outline: none; margin-bottom: 0.5rem;
+      transition: border-color var(--transition);
+    }
+    .chat-form input:focus { border-color: var(--color-rose); }
+    .chat-form button {
+      width: 100%; padding: 0.55rem;
+      background: var(--color-rose); color: #fff;
+      border: none; border-radius: 6px;
+      font-family: 'Lato', sans-serif; font-size: 0.85rem; font-weight: 700;
+      cursor: pointer; transition: background var(--transition);
+    }
+    .chat-form button:hover { background: var(--color-gold); }
+
+    /* Chat specialist list */
+    .chat-spec-list { display: flex; flex-direction: column; gap: 0.35rem; width: 100%; }
+    .chat-spec-item {
+      background: var(--color-surface-alt);
+      border: 1px solid rgba(212,132,154,0.25);
+      border-radius: 7px; padding: 0.5rem 0.7rem;
+      cursor: pointer; transition: all var(--transition);
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.83rem;
+    }
+    .chat-spec-item:hover { border-color: var(--color-rose); background: var(--color-bg); }
+    .chat-spec-item .csi-name { font-weight: 700; color: var(--color-text); }
+    .chat-spec-item .csi-title { font-size: 0.72rem; color: var(--color-text-muted); }
+
+    #chat-input-area {
+      padding: 0.75rem 1rem;
+      border-top: 1px solid rgba(212,132,154,0.15);
+      display: flex; gap: 0.5rem; flex-shrink: 0;
+    }
+    #chat-input {
+      flex: 1; padding: 0.6rem 0.9rem;
+      border: 1.5px solid rgba(212,132,154,0.3); border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-size: 0.88rem;
+      color: var(--color-text); background: var(--color-surface);
+      outline: none; transition: border-color var(--transition);
+    }
+    #chat-input:focus { border-color: var(--color-rose); }
+    #chat-send {
+      padding: 0.6rem 1rem; background: var(--color-rose);
+      color: #fff; border: none; border-radius: 8px;
+      cursor: pointer; font-size: 0.9rem;
+      transition: background var(--transition);
+    }
+    #chat-send:hover { background: var(--color-gold); }
+
+    /* ============================
+       SPECIALIST PHOTO MODAL
+    ============================ */
+    .spec-modal-overlay {
+      position: fixed; inset: 0; z-index: 3000;
+      background: rgba(45,26,34,0.72); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .spec-modal-overlay.open { opacity: 1; pointer-events: all; }
+    .spec-modal {
+      background: var(--color-bg); border-radius: 16px;
+      max-width: 560px; width: 94%; max-height: 88vh; overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(45,26,34,0.32);
+      transform: scale(0.94); transition: transform var(--transition);
+    }
+    .spec-modal-overlay.open .spec-modal { transform: scale(1); }
+    .spec-modal-header {
+      background: linear-gradient(135deg, var(--color-rose), var(--color-gold));
+      padding: 1.8rem 2rem 1.4rem;
+      display: flex; align-items: flex-end; gap: 1.2rem; position: relative;
+    }
+    .spec-modal-avatar {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; color: #fff;
+      border: 3px solid rgba(255,255,255,0.6);
+      flex-shrink: 0; overflow: hidden;
+    }
+    .spec-modal-avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+    }
+    .spec-modal-info { flex: 1; }
+    .spec-modal-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: #fff; margin-bottom: 0.2rem;
+    }
+    .spec-modal-title {
+      font-size: 0.78rem; color: rgba(255,255,255,0.85);
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+    .spec-modal-phone {
+      color: rgba(255,255,255,0.9); text-decoration: none;
+      font-size: 0.9rem; font-weight: 700;
+      display: flex; align-items: center; gap: 0.35rem;
+    }
+    .spec-modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: rgba(255,255,255,0.2); border: none;
+      color: #fff; cursor: pointer; font-size: 1rem;
+      width: 30px; height: 30px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition);
+    }
+    .spec-modal-close:hover { background: rgba(255,255,255,0.35); }
+    .spec-modal-body { padding: 1.8rem 2rem; }
+    .spec-modal-desc {
+      font-size: 0.92rem; color: var(--color-text-muted);
+      line-height: 1.75; margin-bottom: 1.8rem;
+    }
+    .spec-modal-photos-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--color-text); margin-bottom: 1rem;
+    }
+    .spec-modal-photos {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+    .spec-modal-photos .smp-tile {
+      aspect-ratio: 1;
+      border-radius: 8px; overflow: hidden;
+      border: 2px solid var(--color-rose-light);
+    }
+    .spec-modal-photos .smp-tile img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.35s ease;
+    }
+    .spec-modal-photos .smp-tile:hover img { transform: scale(1.07); }
+    .spec-modal-book-btn {
+      width: 100%; padding: 0.9rem;
+      background: var(--color-rose); color: #fff;
+      border: none; border-radius: 8px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      cursor: pointer; transition: all var(--transition);
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .spec-modal-book-btn:hover { background: var(--color-gold); transform: translateY(-1px); }
+
+    /* ============================
+       BOOKING CONFIRM MODAL
+    ============================ */
+    .book-confirm-overlay {
+      position: fixed; inset: 0; z-index: 4000;
+      background: rgba(45,26,34,0.65); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .book-confirm-overlay.open { opacity: 1; pointer-events: all; }
+    .book-confirm-modal {
+      background: var(--color-bg); border-radius: 16px;
+      max-width: 440px; width: 94%;
+      box-shadow: 0 20px 60px rgba(45,26,34,0.32);
+      transform: scale(0.94); transition: transform var(--transition);
+      overflow: hidden;
+    }
+    .book-confirm-overlay.open .book-confirm-modal { transform: scale(1); }
+    .book-confirm-header {
+      background: linear-gradient(135deg, var(--color-rose), var(--color-gold));
+      padding: 1.4rem 1.8rem;
+    }
+    .book-confirm-header h3 {
+      font-family: 'Playfair Display', serif;
+      color: #fff; font-size: 1.3rem;
+    }
+    .book-confirm-body { padding: 1.8rem; }
+    .book-confirm-question {
+      font-size: 1rem; color: var(--color-text);
+      margin-bottom: 1.4rem; line-height: 1.6;
+    }
+    .book-confirm-btns { display: flex; gap: 0.75rem; margin-bottom: 1.4rem; }
+    .book-confirm-yes {
+      flex: 1; padding: 0.7rem;
+      background: var(--color-rose); color: #fff;
+      border: 2px solid var(--color-rose); border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; transition: all var(--transition);
+    }
+    .book-confirm-yes:hover { background: var(--color-gold); border-color: var(--color-gold); }
+    .book-confirm-no {
+      flex: 1; padding: 0.7rem;
+      background: transparent; color: var(--color-text-muted);
+      border: 2px solid rgba(212,132,154,0.35); border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.95rem;
+      cursor: pointer; transition: all var(--transition);
+    }
+    .book-confirm-no:hover { border-color: var(--color-rose); color: var(--color-rose); }
+
+    /* Book form inside confirm modal */
+    .book-form { display: none; }
+    .book-form.visible { display: block; }
+    .book-form-group { margin-bottom: 1rem; }
+    .book-form-group label {
+      display: block; font-size: 0.8rem; font-weight: 700;
+      color: var(--color-text-muted); letter-spacing: 0.04em;
+      text-transform: uppercase; margin-bottom: 0.35rem;
+    }
+    .book-form-group input {
+      width: 100%; padding: 0.7rem 1rem;
+      border: 1.5px solid rgba(212,132,154,0.3); border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-size: 0.92rem;
+      color: var(--color-text); background: var(--color-surface);
+      outline: none; transition: border-color var(--transition);
+    }
+    .book-form-group input:focus { border-color: var(--color-rose); }
+    .book-form-submit {
+      width: 100%; padding: 0.85rem;
+      background: var(--color-rose); color: #fff;
+      border: none; border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 1rem;
+      cursor: pointer; transition: all var(--transition);
+      margin-top: 0.5rem;
+    }
+    .book-form-submit:hover { background: var(--color-gold); }
+
+    /* Book success */
+    .book-success { display: none; text-align: center; padding: 1rem 0; }
+    .book-success.visible { display: block; }
+    .book-success-icon { font-size: 3rem; color: var(--color-success); margin-bottom: 0.75rem; }
+    .book-success h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--color-text);
+    }
+    .book-success p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 1.5rem; }
+    .book-success-close {
+      padding: 0.7rem 2rem;
+      background: var(--color-rose); color: #fff;
+      border: none; border-radius: 8px;
+      font-family: 'Lato', sans-serif; font-weight: 700;
+      cursor: pointer; transition: background var(--transition);
+    }
+    .book-success-close:hover { background: var(--color-gold); }
+
+    /* ============================
+       CALL NOW FLOAT
+    ============================ */
+    #call-now-float {
+      position: fixed; bottom: 2rem; left: 2rem; z-index: 900;
+      background: #4a9a60; color: #fff;
+      border: none; border-radius: 50px;
+      padding: 0.85rem 1.4rem;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 0.88rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(74,154,96,0.4);
+      transition: all var(--transition);
+      animation: pulse-green 3s ease-in-out infinite;
+    }
+    #call-now-float:hover { background: #3a8050; transform: translateY(-2px); }
+    @keyframes pulse-green {
+      0%,100% { box-shadow: 0 4px 20px rgba(74,154,96,0.4); }
+      50% { box-shadow: 0 4px 28px rgba(74,154,96,0.7), 0 0 0 8px rgba(74,154,96,0.08); }
+    }
+
+    /* ============================
+       SCROLL ANIMATIONS
+    ============================ */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============================
+       UTILITY
+    ============================ */
+    .hidden { display: none !important; }
+
+    /* ============================
+       RESPONSIVE
+    ============================ */
+    @media (max-width: 768px) {
+      section { padding: 4rem 0; }
+      .container { padding: 0 1.2rem; }
+      #hamburger { display: flex; }
+      #nav-links {
+        display: none; flex-direction: column;
+        position: absolute; top: var(--nav-height);
+        left: 0; right: 0;
+        background: rgba(255,248,249,0.98);
+        border-bottom: 1px solid var(--color-rose-light);
+        padding: 1.5rem; gap: 1.2rem;
+        box-shadow: 0 8px 24px rgba(180,120,138,0.1);
+      }
+      #nav-links.open { display: flex; }
+      #nav-links .nav-book { text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      #chatbot-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 5.5rem; }
+      #chatbot-toggle { right: 1rem; bottom: 1rem; }
+      #call-now-float { display: none; }
+      .location-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .carousel-arrow.prev { left: -14px; }
+      .carousel-arrow.next { right: -14px; }
+      .carousel-thumb { width: 64px; height: 50px; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas .btn-primary, .hero-ctas .btn-secondary { width: 100%; text-align: center; }
+      .specialists-grid { grid-template-columns: 1fr; }
+      .spec-modal-photos { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================
+       NAVIGATION
+  ============================ -->
+  <nav id="main-nav">
+    <div class="container">
+      <a href="#hero" class="nav-logo">
+        <i class="fa-solid fa-spa"></i>
+        Nail Nook <span>&amp; More</span>
+      </a>
+      <button id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#specialists">Specialists</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#location">Contact</a></li>
+        <li class="nav-book"><a href="#" onclick="openChat();return false;">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================
+       HERO
+  ============================ -->
+  <section id="hero">
+    <div class="hero-deco hero-deco-1"></div>
+    <div class="hero-deco hero-deco-2"></div>
+    <div class="hero-deco hero-deco-3"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">Lake Havasu City, Arizona</div>
+        <h1 class="hero-title">
+          <span class="line1">Nail Nook</span>
+          <span class="line2">&amp; More</span>
+        </h1>
+        <p class="hero-sub">Where every visit is a moment of luxury.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="openChat()">
+            <i class="fa-solid fa-calendar-check"></i>&nbsp; Book an Appointment
+          </button>
+          <a href="#specialists" class="btn-secondary">
+            <i class="fa-solid fa-users"></i>&nbsp; Meet Our Specialists
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       SERVICES
+  ============================ -->
+  <section id="services">
+    <div class="container">
+      <div class="ornament fade-up"><i class="fa-solid fa-spa" aria-hidden="true"></i></div>
+      <h2 class="section-title fade-up">Our Services</h2>
+      <p class="section-subtitle fade-up">Tap a service to start booking with our assistant</p>
+      <div class="services-grid">
+        <div class="service-card fade-up" onclick="openChatWithService('Classic Manicure')">
+          <div class="service-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
+          <div class="service-name">Classic Manicure</div>
+          <div class="service-desc">Shape, buff, and polish for perfectly groomed nails with a lasting finish.</div>
+        </div>
+        <div class="service-card fade-up" onclick="openChatWithService('Gel Manicure')">
+          <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <div class="service-name">Gel Manicure</div>
+          <div class="service-desc">Long-lasting gel polish that stays chip-free and glossy for weeks.</div>
+        </div>
+        <div class="service-card fade-up" onclick="openChatWithService('Acrylic Full Set')">
+          <div class="service-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="service-name">Acrylic Full Set</div>
+          <div class="service-desc">Full acrylic extensions sculpted and shaped to your desired length and style.</div>
+        </div>
+        <div class="service-card fade-up" onclick="openChatWithService('Nail Art')">
+          <div class="service-icon"><i class="fa-solid fa-paintbrush"></i></div>
+          <div class="service-name">Nail Art</div>
+          <div class="service-desc">Custom designs from florals to gems — let our artists bring your vision to life.</div>
+        </div>
+        <div class="service-card fade-up" onclick="openChatWithService('Pedicure')">
+          <div class="service-icon"><i class="fa-solid fa-heart"></i></div>
+          <div class="service-name">Pedicure</div>
+          <div class="service-desc">Relaxing spa or classic pedicure for smooth, beautiful feet.</div>
+        </div>
+        <div class="service-card fade-up" onclick="openChatWithService('Waxing')">
+          <div class="service-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+          <div class="service-name">Waxing</div>
+          <div class="service-desc">Smooth, precise waxing for face and body by certified specialists.</div>
+        </div>
+        <div class="service-card fade-up" onclick="openChatWithService('Eyelash Extensions')">
+          <div class="service-icon"><i class="fa-regular fa-eye"></i></div>
+          <div class="service-name">Eyelash Extensions</div>
+          <div class="service-desc">Volume, classic, or hybrid lash sets for stunning, natural-looking lashes.</div>
+        </div>
+        <div class="service-card fade-up" onclick="openChatWithService('Massage')">
+          <div class="service-icon"><i class="fa-solid fa-hands"></i></div>
+          <div class="service-name">Massage &amp; Med Spa</div>
+          <div class="service-desc">Therapeutic massage and advanced med spa treatments for full relaxation.</div>
+        </div>
+      </div>
+      <div class="services-cta fade-up">
+        <button class="btn-primary" onclick="openChat()">
+          <i class="fa-solid fa-comment-dots"></i>&nbsp; Chat With Our Assistant
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       MEET OUR SPECIALISTS
+  ============================ -->
+  <section id="specialists">
+    <div class="container">
+      <div class="ornament fade-up"><i class="fa-solid fa-hand-sparkles" aria-hidden="true"></i></div>
+      <h2 class="section-title fade-up">Meet Our Specialists</h2>
+      <p class="section-subtitle fade-up">Click any card to view their work — or book directly below</p>
+      <div class="specialists-grid" id="specialists-grid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       PHOTO GALLERY CAROUSEL
+  ============================ -->
+  <section id="gallery">
+    <div class="container">
+      <div class="ornament fade-up"><i class="fa-solid fa-camera" aria-hidden="true"></i></div>
+      <h2 class="section-title fade-up">Our Work</h2>
+      <p class="section-subtitle fade-up">A glimpse of the artistry we bring to every appointment</p>
+
+      <div class="gallery-carousel-wrap fade-up">
+        <div class="carousel-stage" id="carousel-stage">
+          <!-- Slides injected by JS -->
+        </div>
+        <button class="carousel-arrow prev" id="carousel-prev" aria-label="Previous">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow next" id="carousel-next" aria-label="Next">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="carousel-dots" id="carousel-dots"></div>
+      <div class="carousel-thumbs" id="carousel-thumbs"></div>
+
+      <div class="gallery-cta fade-up">
+        <button class="btn-primary" onclick="openChat()" style="margin-right:0.75rem;">
+          <i class="fa-solid fa-calendar-check"></i>&nbsp; Book an Appointment
+        </button>
+        <a href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" class="btn-secondary">
+          <i class="fa-brands fa-instagram"></i>&nbsp; See More on Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================
+       FIND US (GOOGLE MAPS)
+  ============================ -->
+  <section id="location">
+    <div class="container">
+      <div class="ornament fade-up"><i class="fa-solid fa-location-dot" aria-hidden="true"></i></div>
+      <h2 class="section-title fade-up">Find Us</h2>
+      <p class="section-subtitle fade-up">Come visit us in Lake Havasu City</p>
+    </div>
+    <div class="location-inner">
+      <div class="location-info fade-up">
+        <h3><i class="fa-solid fa-spa" style="color:var(--color-rose);margin-right:0.5rem;"></i>Nail Nook &amp; More</h3>
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div class="info-text">
+            <strong>Address</strong>
+            1947 McCulloch Blvd N #104<br>Lake Havasu City, AZ 86403
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-clock"></i>
+          <div class="info-text">
+            <strong>Hours</strong>
+            <table class="hours-table">
+              <tr><td>Monday – Friday</td><td>9:00 AM – 7:00 PM</td></tr>
+              <tr><td>Saturday</td><td>9:00 AM – 6:00 PM</td></tr>
+              <tr><td>Sunday</td><td>10:00 AM – 4:00 PM</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-phone"></i>
+          <div class="info-text">
+            <strong>Main Line</strong>
+            <a href="tel:9284863524" style="color:var(--color-rose);font-weight:700;text-decoration:none;">(928) 486-3524</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fa-brands fa-instagram"></i>
+          <div class="info-text">
+            <strong>Instagram</strong>
+            <a href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" style="color:var(--color-rose);font-weight:700;text-decoration:none;">@nailnook_lhc</a>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <button class="btn-primary" onclick="openChat()" style="width:100%;justify-content:center;display:flex;gap:0.5rem;align-items:center;">
+            <i class="fa-solid fa-calendar-check"></i> Book an Appointment
+          </button>
+        </div>
+      </div>
+      <div class="map-container fade-up">
+        <iframe
+          src="https://maps.google.com/maps?q=1947+McCulloch+Blvd+N+%23+104,+Lake+Havasu+City,+AZ+86403&output=embed&z=16"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Nail Nook & More location map">
+        </iframe>
+      </div>
+    </div>
+    <div class="map-fullwidth">
+      <iframe
+        src="https://maps.google.com/maps?q=1947+McCulloch+Blvd+N+%23+104,+Lake+Havasu+City,+AZ+86403&output=embed&z=15"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Nail Nook & More directions map">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- ============================
+       FOOTER
+  ============================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo" style="margin-bottom:1rem;">
+            <i class="fa-solid fa-spa"></i>
+            Nail Nook <span style="color:var(--color-rose-light);">&amp; More</span>
+          </a>
+          <p>Lake Havasu City's premier nail salon and beauty destination. Where luxury meets artistry.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#specialists">Meet the Team</a></li>
+            <li><a href="#gallery">Our Work</a></li>
+            <li><a href="#location">Contact &amp; Hours</a></li>
+            <li><a href="#" onclick="openChat();return false;">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul>
+            <li><a href="tel:9284863524">(928) 486-3524</a></li>
+            <li><a href="https://maps.google.com/?q=1947+McCulloch+Blvd+N+%23+104+Lake+Havasu+City+AZ" target="_blank" rel="noopener">1947 McCulloch Blvd N #104<br>Lake Havasu City, AZ 86403</a></li>
+            <li><a href="https://www.instagram.com/nailnook_lhc/" target="_blank" rel="noopener">@nailnook_lhc</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Nail Nook &amp; More · Lake Havasu City, AZ · All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================
+       CHATBOT WIDGET
+  ============================ -->
+  <div id="chat-label">Book an Appointment</div>
+
+  <button id="chatbot-toggle" aria-label="Open booking assistant">
+    <i class="fa-solid fa-comment-dots"></i>
+  </button>
+
+  <div id="chatbot-panel" role="dialog" aria-label="Booking assistant">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar"><i class="fa-solid fa-spa"></i></div>
+        <div>
+          <div class="chat-header-title">Nail Nook Assistant</div>
+          <div class="chat-header-sub">Let's get you booked!</div>
+        </div>
+      </div>
+      <button class="chat-close" onclick="closeChat()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-quick-replies"></div>
+    <div id="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+      <button id="chat-send"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- ============================
+       SPECIALIST PHOTO MODAL
+  ============================ -->
+  <div id="spec-modal-overlay" class="spec-modal-overlay" onclick="handleSpecOverlayClick(event)">
+    <div class="spec-modal" id="spec-modal">
+      <div class="spec-modal-header" id="spec-modal-header">
+        <div class="spec-modal-avatar" id="spec-modal-avatar"></div>
+        <div class="spec-modal-info">
+          <div class="spec-modal-name" id="spec-modal-name"></div>
+          <div class="spec-modal-title" id="spec-modal-title"></div>
+          <a class="spec-modal-phone" id="spec-modal-phone" href="#"><i class="fa-solid fa-phone"></i> <span></span></a>
+        </div>
+        <button class="spec-modal-close" onclick="closeSpecModal()" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="spec-modal-body">
+        <p class="spec-modal-desc" id="spec-modal-desc"></p>
+        <div class="spec-modal-photos-title">Portfolio</div>
+        <div class="spec-modal-photos" id="spec-modal-photos"></div>
+        <button class="spec-modal-book-btn" id="spec-modal-book-btn">
+          <i class="fa-solid fa-calendar-check"></i> Book with This Specialist
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       BOOKING CONFIRM MODAL
+  ============================ -->
+  <div id="book-confirm-overlay" class="book-confirm-overlay" onclick="handleBookOverlayClick(event)">
+    <div class="book-confirm-modal" id="book-confirm-modal">
+      <div class="book-confirm-header">
+        <h3 id="book-confirm-title">Book an Appointment</h3>
+      </div>
+      <div class="book-confirm-body">
+        <p class="book-confirm-question" id="book-confirm-question"></p>
+        <div class="book-confirm-btns" id="book-confirm-btns">
+          <button class="book-confirm-yes" id="book-confirm-yes">Yes, book now</button>
+          <button class="book-confirm-no" onclick="closeBookModal()">Cancel</button>
+        </div>
+        <div class="book-form" id="book-form">
+          <div class="book-form-group">
+            <label for="bf-name">Your Name</label>
+            <input type="text" id="bf-name" placeholder="First and last name">
+          </div>
+          <div class="book-form-group">
+            <label for="bf-phone">Phone Number</label>
+            <input type="tel" id="bf-phone" placeholder="(555) 000-0000">
+          </div>
+          <div class="book-form-group">
+            <label for="bf-email">Email Address</label>
+            <input type="email" id="bf-email" placeholder="you@email.com">
+          </div>
+          <button class="book-form-submit" id="book-form-submit">
+            <i class="fa-solid fa-paper-plane"></i>&nbsp; Send Booking Request
+          </button>
+        </div>
+        <div class="book-success" id="book-success">
+          <div class="book-success-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h4>Request Sent!</h4>
+          <p id="book-success-msg"></p>
+          <button class="book-success-close" onclick="closeBookModal()">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================
+       CALL NOW FLOAT
+  ============================ -->
+  <a href="tel:9284863524" id="call-now-float">
+    <i class="fa-solid fa-phone"></i> Call Now
+  </a>
+
+  <script>
+    /* ============================================================
+       SALON CONFIGURATION
+       Fill in your email/EmailJS details to enable notifications
+    ============================================================ */
+    const SALON_CONFIG = {
+      salonEmail:        'nailnook@example.com', // Replace with real salon email
+      emailjsServiceId:  '',
+      emailjsTemplateId: '',
+      emailjsPublicKey:  ''
+    };
+
+    /* ============================================================
+       SPECIALISTS DATA
+    ============================================================ */
+    const SPECIALISTS = [
+      {
+        id: 'stephanie', name: 'Stephanie', initials: 'S',
+        title: 'Owner · Nail Technician',
+        phone: '(928) 486-3524', tel: '9284863524',
+        gradient: 'linear-gradient(135deg,#f8d4e0,#e8a0b4,#d4849a)',
+        specialty: 'With years of expertise, Stephanie specializes in gel manicures, acrylic full sets, intricate nail art, and dip powder. As owner, she sets the standard for precision and luxury at Nail Nook.',
+        imgSig: 1, imgQuery: 'nail,manicure,nailart',
+        portfolioQueries: ['nail,manicure','nailart,nails','gel,manicure','acrylic,nails','nail,design','dip,powder']
+      },
+      {
+        id: 'raquel', name: 'Raquel', initials: 'R',
+        title: 'Nail Technician',
+        phone: '(928) 846-1087', tel: '9288461087',
+        gradient: 'linear-gradient(135deg,#fde8f4,#e8a8d0,#c86098)',
+        specialty: 'Raquel excels in classic and gel manicures, acrylic full sets, and creative nail art. Known for her attention to detail and client-centered approach.',
+        imgSig: 2, imgQuery: 'nail,manicure,nailart',
+        portfolioQueries: ['manicure,nails','nail,art','gel,nails','acrylic,manicure','nail,polish','beauty,nails']
+      },
+      {
+        id: 'kendall', name: 'Kendall', initials: 'K',
+        title: 'Restoration Med Spa',
+        phone: '(928) 732-2267', tel: '9287322267',
+        gradient: 'linear-gradient(135deg,#d0eef8,#80c8e8,#3898c0)',
+        specialty: 'Kendall brings medical spa expertise to Nail Nook, offering advanced skincare and restoration treatments for a complete wellness experience.',
+        imgSig: 3, imgQuery: 'spa,facial,skincare',
+        portfolioQueries: ['spa,facial','skincare,treatment','facial,glow','med,spa','skin,care','wellness,beauty']
+      },
+      {
+        id: 'lara', name: 'Lara', initials: 'L',
+        title: 'Licensed Masseuse',
+        phone: '(928) 486-7756', tel: '9284867756',
+        gradient: 'linear-gradient(135deg,#e8d8f8,#c0a0e0,#9068c0)',
+        specialty: 'Lara is a licensed masseuse specializing in deep tissue, Swedish, and relaxation massage therapies — a true expert in helping clients unwind.',
+        imgSig: 4, imgQuery: 'massage,spa,wellness',
+        portfolioQueries: ['massage,therapy','spa,wellness','relaxation,massage','deep,tissue','spa,treatment','wellness,retreat']
+      },
+      {
+        id: 'ashly', name: 'Ashly', initials: 'A',
+        title: 'Eyelash Specialist',
+        phone: '(928) 302-0949', tel: '9283020949',
+        gradient: 'linear-gradient(135deg,#2a1a30,#6a3870,#d490b8)',
+        specialty: 'Ashly is a certified eyelash extension artist specializing in classic, volume, and hybrid lashes. Precision and safety are her top priorities.',
+        imgSig: 5, imgQuery: 'eyelash,eyelashes,beauty',
+        portfolioQueries: ['eyelash,extensions','lash,beauty','eye,lashes','volume,lashes','classic,lashes','hybrid,lashes']
+      },
+      {
+        id: 'jessica', name: 'Jessica', initials: 'J',
+        title: 'Nail Technician',
+        phone: '(928) 412-3735', tel: '9284123735',
+        gradient: 'linear-gradient(135deg,#fce4ee,#f0a8c0,#d46888)',
+        specialty: 'Jessica is a creative nail technician known for stunning nail art and flawless gel applications. She brings every client\'s vision to life with skill and care.',
+        imgSig: 6, imgQuery: 'nail,manicure,nailart',
+        portfolioQueries: ['nail,art,design','gel,manicure','nails,creative','nail,polish','manicure,art','nail,beauty']
+      },
+      {
+        id: 'katie', name: 'Katie', initials: 'K',
+        title: 'Nail Technician',
+        phone: '(928) 412-5323', tel: '9284125323',
+        gradient: 'linear-gradient(135deg,#f0c4d4,#d4849a,#b87a8a)',
+        specialty: 'Katie specializes in classic and gel manicures with a gentle touch. Her clients love her eye for color and consistently flawless results.',
+        imgSig: 7, imgQuery: 'nail,manicure,nailart',
+        portfolioQueries: ['manicure,pink','gel,nails','nail,color','classic,manicure','nail,polish,art','beauty,nails']
+      },
+      {
+        id: 'ricci', name: 'Ricci', initials: 'R',
+        title: 'Hair & Waxing Specialist',
+        phone: '(928) 542-1115', tel: '9285421115',
+        gradient: 'linear-gradient(135deg,#f8ece0,#d8a870,#a06820)',
+        specialty: 'Ricci is an experienced hair and waxing specialist offering smooth, precise waxing for all areas. Comfort and expertise are her hallmarks.',
+        imgSig: 8, imgQuery: 'hair,hairstyle,salon',
+        portfolioQueries: ['hair,salon','waxing,beauty','hair,style','smooth,skin','beauty,hair','salon,treatment']
+      },
+      {
+        id: 'selena', name: 'Selena', initials: 'S',
+        title: 'Nail Technician',
+        phone: '(928) 662-8250', tel: '9286628250',
+        gradient: 'linear-gradient(135deg,#e8d4f0,#c0a0d4,#9868b8)',
+        specialty: 'Selena is passionate about nail artistry with a flair for ombre designs and intricate nail details. Her creativity makes every appointment special.',
+        imgSig: 9, imgQuery: 'nail,manicure,nailart',
+        portfolioQueries: ['ombre,nails','nail,art','purple,nails','nail,design','glitter,nails','manicure,art']
+      },
+      {
+        id: 'shannon', name: 'Shannon', initials: 'S',
+        title: 'Nail Technician',
+        phone: '(928) 412-6965', tel: '9284126965',
+        gradient: 'linear-gradient(135deg,#f8e0d0,#f0b090,#d87050)',
+        specialty: 'Shannon brings a warm, welcoming energy to every appointment, specializing in classic and gel manicures and acrylic sets with consistent quality.',
+        imgSig: 10, imgQuery: 'nail,manicure,nailart',
+        portfolioQueries: ['nail,manicure','gel,nails','acrylic,nails','nail,color','manicure,nailart','nail,beauty']
+      },
+      {
+        id: 'shelby', name: 'Shelby', initials: 'S',
+        title: 'Waxing Specialist',
+        phone: '(951) 532-6685', tel: '9515326685',
+        gradient: 'linear-gradient(135deg,#fdf4d8,#f0d890,#c8a428)',
+        specialty: 'Shelby is a dedicated waxing specialist with expertise in facial and body waxing. Her gentle technique and attention to detail keep clients returning.',
+        imgSig: 11, imgQuery: 'beauty,skincare,smooth',
+        portfolioQueries: ['beauty,skin','skincare,smooth','waxing,beauty','body,care','skin,treatment','beauty,care']
+      },
+      {
+        id: 'rita', name: 'Rita', initials: 'R',
+        title: 'Nail Technician',
+        phone: '(480) 241-9972', tel: '4802419972',
+        gradient: 'linear-gradient(135deg,#fce8ed,#f0b8c8,#d4849a)',
+        specialty: 'Rita specializes in manicures, pedicures, and spa treatments. Her clients enjoy her calm professional approach and beautiful results every time.',
+        imgSig: 12, imgQuery: 'nail,manicure,nailart',
+        portfolioQueries: ['pedicure,feet','spa,pedicure','nail,manicure','manicure,nails','pedicure,nail','nail,spa']
+      },
+      {
+        id: 'cathy', name: 'Cathy', initials: 'C',
+        title: 'Hair & Waxing Specialist',
+        phone: '(928) 706-6177', tel: '9287066177',
+        gradient: 'linear-gradient(135deg,#f8e8d0,#d8b060,#a07820)',
+        specialty: 'Cathy is an experienced hair and waxing specialist known for her precision and care, offering styling and smooth waxing that keep clients looking their best.',
+        imgSig: 13, imgQuery: 'hair,hairstyle,salon',
+        portfolioQueries: ['hair,style','hair,salon','hair,color','waxing,skin','hair,beauty','salon,hair']
+      },
+      {
+        id: 'amanda', name: 'Amanda', initials: 'A',
+        title: 'Hair & Waxing Specialist',
+        phone: '(909) 996-1121', tel: '9099961121',
+        gradient: 'linear-gradient(135deg,#f8e0d4,#d89070,#a05030)',
+        specialty: 'Amanda brings expertise in hair styling and waxing to Nail Nook. Her clients appreciate her friendly personality and the polished, lasting results she delivers.',
+        imgSig: 14, imgQuery: 'hair,hairstyle,salon',
+        portfolioQueries: ['hair,styling','hair,waves','hair,beauty','waxing,body','hair,treatment','salon,style']
+      }
+    ];
+
+    /* ============================================================
+       GALLERY DATA
+    ============================================================ */
+    const GALLERY_PHOTOS = [
+      { src: 'https://source.unsplash.com/840x630/?nail,manicure&sig=201', label: 'Classic French' },
+      { src: 'https://source.unsplash.com/840x630/?nailart,nail&sig=202', label: 'Ombre Rose' },
+      { src: 'https://source.unsplash.com/840x630/?manicure,nails&sig=203', label: 'Black Chrome' },
+      { src: 'https://source.unsplash.com/840x630/?eyelash,eyelashes&sig=204', label: 'Volume Lashes' },
+      { src: 'https://source.unsplash.com/840x630/?nail,manicure&sig=205', label: 'Gold Foil Art' },
+      { src: 'https://source.unsplash.com/840x630/?hair,hairstyle&sig=206', label: 'Blowout & Style' },
+      { src: 'https://source.unsplash.com/840x630/?nailart,nails&sig=207', label: 'Cherry Red' },
+      { src: 'https://source.unsplash.com/840x630/?spa,facial&sig=208', label: 'Glow Facial' },
+      { src: 'https://source.unsplash.com/840x630/?manicure,nail&sig=209', label: 'Rose Glitter' },
+      { src: 'https://source.unsplash.com/840x630/?nailart,manicure&sig=210', label: 'Autumn Sunset' },
+      { src: 'https://source.unsplash.com/840x630/?massage,wellness&sig=211', label: 'Deep Tissue Massage' },
+      { src: 'https://source.unsplash.com/840x630/?nail,nailart&sig=212', label: 'Holographic' },
+      { src: 'https://source.unsplash.com/840x630/?manicure,nails&sig=213', label: 'Lavender Dream' },
+      { src: 'https://source.unsplash.com/840x630/?eyelash,beauty&sig=214', label: 'Classic Lashes' },
+      { src: 'https://source.unsplash.com/840x630/?nail,manicure&sig=215', label: 'Mint & Sage' },
+      { src: 'https://source.unsplash.com/840x630/?hair,salon&sig=216', label: 'Color & Cut' },
+      { src: 'https://source.unsplash.com/840x630/?nailart,nail&sig=217', label: 'Ocean Blue' },
+      { src: 'https://source.unsplash.com/840x630/?spa,skincare&sig=218', label: 'Hydration Facial' },
+      { src: 'https://source.unsplash.com/840x630/?manicure,nails&sig=219', label: 'Smoky Crystal' },
+      { src: 'https://source.unsplash.com/840x630/?nail,nailart&sig=220', label: 'Gel Full Set' },
+      { src: 'https://source.unsplash.com/840x630/?eyelash,eyelashes&sig=221', label: 'Hybrid Lashes' },
+      { src: 'https://source.unsplash.com/840x630/?manicure,nail&sig=222', label: 'French Ombre' },
+      { src: 'https://source.unsplash.com/840x630/?nailart,nails&sig=223', label: 'Floral Design' },
+      { src: 'https://source.unsplash.com/840x630/?pedicure,feet&sig=224', label: 'Spa Pedicure' }
+    ];
+
+    /* ============================================================
+       RENDER SPECIALISTS GRID
+    ============================================================ */
+    function renderSpecialists() {
+      const grid = document.getElementById('specialists-grid');
+      grid.innerHTML = SPECIALISTS.map(s => `
+        <div class="spec-card fade-up" id="spec-card-${s.id}">
+          <div class="spec-photo" style="${s.gradient}" onclick="openSpecModal('${s.id}')">
+            <div class="spec-initials">${s.initials}</div>
+            <div class="spec-photo-hint">View Photos</div>
+          </div>
+          <div class="spec-body">
+            <div class="spec-name">${s.name}${s.id === 'stephanie' ? ' <span style="font-size:0.7rem;color:var(--color-rose);font-family:Lato,sans-serif;font-weight:700;">Owner</span>' : ''}</div>
+            <div class="spec-title">${s.title}</div>
+            <a class="spec-phone" href="tel:${s.tel}"><i class="fa-solid fa-phone"></i>${s.phone}</a>
+            <p class="spec-desc">${s.specialty}</p>
+          </div>
+          <div class="spec-actions">
+            <button class="spec-view-btn" onclick="openSpecModal('${s.id}')">
+              <i class="fa-regular fa-images"></i> View Photos
+            </button>
+            <button class="spec-book-btn" onclick="openBookModal('${s.id}')">
+              <i class="fa-solid fa-calendar-check"></i> Book Now
+            </button>
+          </div>
+        </div>
+      `).join('');
+      setupScrollAnimations();
+    }
+
+    /* ============================================================
+       RENDER GALLERY CAROUSEL
+    ============================================================ */
+    let carouselIndex = 0;
+    let carouselTimer = null;
+
+    function renderCarousel() {
+      const stage = document.getElementById('carousel-stage');
+      const dotsEl = document.getElementById('carousel-dots');
+      const thumbsEl = document.getElementById('carousel-thumbs');
+
+      stage.innerHTML = GALLERY_PHOTOS.map((p, i) => `
+        <div class="carousel-slide${i === 0 ? ' active' : ''}" data-idx="${i}">
+          <img src="${p.src}" alt="${p.label}" loading="${i < 3 ? 'eager' : 'lazy'}">
+          <div class="carousel-slide-label">${p.label}</div>
+        </div>
+      `).join('');
+
+      dotsEl.innerHTML = GALLERY_PHOTOS.map((_, i) => `
+        <button class="carousel-dot${i === 0 ? ' active' : ''}" data-idx="${i}" onclick="goToSlide(${i})" aria-label="Go to slide ${i+1}"></button>
+      `).join('');
+
+      thumbsEl.innerHTML = GALLERY_PHOTOS.map((p, i) => `
+        <div class="carousel-thumb${i === 0 ? ' active' : ''}" data-idx="${i}" onclick="goToSlide(${i})">
+          <img src="${p.src}" alt="${p.label}" loading="lazy">
+        </div>
+      `).join('');
+
+      document.getElementById('carousel-prev').addEventListener('click', () => { goToSlide((carouselIndex - 1 + GALLERY_PHOTOS.length) % GALLERY_PHOTOS.length); });
+      document.getElementById('carousel-next').addEventListener('click', () => { goToSlide((carouselIndex + 1) % GALLERY_PHOTOS.length); });
+
+      startCarouselTimer();
+
+      const stage2 = document.getElementById('carousel-stage');
+      stage2.addEventListener('mouseenter', () => clearInterval(carouselTimer));
+      stage2.addEventListener('mouseleave', startCarouselTimer);
+    }
+
+    function goToSlide(idx) {
+      document.querySelectorAll('.carousel-slide').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.carousel-dot').forEach(d => d.classList.remove('active'));
+      document.querySelectorAll('.carousel-thumb').forEach(t => t.classList.remove('active'));
+
+      carouselIndex = idx;
+      document.querySelector(`.carousel-slide[data-idx="${idx}"]`).classList.add('active');
+      document.querySelector(`.carousel-dot[data-idx="${idx}"]`).classList.add('active');
+      const thumb = document.querySelector(`.carousel-thumb[data-idx="${idx}"]`);
+      thumb.classList.add('active');
+      thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+
+    function startCarouselTimer() {
+      clearInterval(carouselTimer);
+      carouselTimer = setInterval(() => {
+        goToSlide((carouselIndex + 1) % GALLERY_PHOTOS.length);
+      }, 4000);
+    }
+
+    /* ============================================================
+       SPECIALIST PHOTO MODAL
+    ============================================================ */
+    let _currentSpecId = null;
+
+    function openSpecModal(id) {
+      const s = SPECIALISTS.find(x => x.id === id);
+      if (!s) return;
+      _currentSpecId = id;
+
+      // Header avatar
+      const avatarEl = document.getElementById('spec-modal-avatar');
+      avatarEl.style.background = s.gradient;
+      avatarEl.innerHTML = `<span style="font-family:'Playfair Display',serif;font-size:1.9rem;color:#fff;">${s.initials}</span>`;
+
+      document.getElementById('spec-modal-name').textContent = s.name;
+      document.getElementById('spec-modal-title').textContent = s.title;
+      const phoneLink = document.getElementById('spec-modal-phone');
+      phoneLink.href = `tel:${s.tel}`;
+      phoneLink.querySelector('span').textContent = s.phone;
+      document.getElementById('spec-modal-desc').textContent = s.specialty;
+
+      // Portfolio photos
+      const photosEl = document.getElementById('spec-modal-photos');
+      photosEl.innerHTML = s.portfolioQueries.map((q, i) =>
+        `<div class="smp-tile"><img src="https://source.unsplash.com/300x300/?${q}&sig=${s.imgSig}${i+1}" alt="${s.name} portfolio" loading="lazy"></div>`
+      ).join('');
+
+      document.getElementById('spec-modal-book-btn').onclick = () => {
+        closeSpecModal();
+        setTimeout(() => openBookModal(id), 220);
+      };
+
+      document.getElementById('spec-modal-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSpecModal() {
+      document.getElementById('spec-modal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleSpecOverlayClick(e) {
+      if (e.target === document.getElementById('spec-modal-overlay')) closeSpecModal();
+    }
+
+    /* ============================================================
+       BOOKING CONFIRM MODAL
+    ============================================================ */
+    let _bookSpecId = null;
+
+    function openBookModal(id) {
+      const s = SPECIALISTS.find(x => x.id === id);
+      if (!s) return;
+      _bookSpecId = id;
+
+      document.getElementById('book-confirm-title').textContent = `Book with ${s.name}`;
+      document.getElementById('book-confirm-question').textContent = `Are you sure you'd like to book an appointment with ${s.name} (${s.title})?`;
+
+      // Reset to question state
+      document.getElementById('book-confirm-btns').style.display = 'flex';
+      document.getElementById('book-form').classList.remove('visible');
+      document.getElementById('book-success').classList.remove('visible');
+      document.getElementById('bf-name').value = '';
+      document.getElementById('bf-phone').value = '';
+      document.getElementById('bf-email').value = '';
+
+      document.getElementById('book-confirm-yes').onclick = () => {
+        document.getElementById('book-confirm-btns').style.display = 'none';
+        document.getElementById('book-confirm-question').style.display = 'none';
+        document.getElementById('book-form').classList.add('visible');
+      };
+
+      document.getElementById('book-form-submit').onclick = () => {
+        const name  = document.getElementById('bf-name').value.trim();
+        const phone = document.getElementById('bf-phone').value.trim();
+        const email = document.getElementById('bf-email').value.trim();
+        if (!name || !phone) {
+          alert('Please enter your name and phone number.');
+          return;
+        }
+        sendBookingNotification(s, name, phone, email);
+        document.getElementById('book-form').classList.remove('visible');
+        const successMsg = document.getElementById('book-success');
+        successMsg.classList.add('visible');
+        document.getElementById('book-success-msg').textContent =
+          `${s.name} will contact you at ${phone} to confirm your appointment. We look forward to seeing you!`;
+      };
+
+      document.getElementById('book-confirm-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBookModal() {
+      document.getElementById('book-confirm-overlay').classList.remove('open');
+      document.getElementById('book-confirm-question').style.display = '';
+      document.body.style.overflow = '';
+    }
+
+    function handleBookOverlayClick(e) {
+      if (e.target === document.getElementById('book-confirm-overlay')) closeBookModal();
+    }
+
+    /* ============================================================
+       NOTIFICATION / EMAIL
+    ============================================================ */
+    function sendBookingNotification(specialist, clientName, clientPhone, clientEmail) {
+      const subject = encodeURIComponent(`New Appointment Request for ${specialist.name}`);
+      const body = encodeURIComponent(
+        `Hi ${specialist.name},\n\nA client would like to book an appointment with you.\n\n` +
+        `Client Name: ${clientName}\nPhone: ${clientPhone}\nEmail: ${clientEmail || 'Not provided'}\n\n` +
+        `Please reach out to confirm their appointment.\n\nThank you,\nNail Nook & More`
+      );
+      const mailtoUrl = `mailto:${SALON_CONFIG.salonEmail}?subject=${subject}&body=${body}`;
+      window.open(mailtoUrl, '_blank');
+    }
+
+    /* ============================================================
+       CHATBOT STATE MACHINE
+    ============================================================ */
+    const Chat = {
+      state: 'GREETING',
+      service: null,
+      specialist: null,
+
+      init() {
+        setTimeout(() => this.botMsg("Hi! Welcome to Nail Nook & More ✨ What service are you looking for today?"), 400);
+        setTimeout(() => this.showReplies([
+          'Classic Manicure', 'Gel Manicure', 'Acrylic Set', 'Nail Art',
+          'Pedicure', 'Waxing', 'Lashes', 'Massage / Med Spa', 'Not sure yet'
+        ]), 900);
+        this.state = 'AWAITING_SERVICE';
+      },
+
+      botMsg(text, delay = 0) {
+        if (delay) {
+          this.showTyping();
+          setTimeout(() => {
+            this.hideTyping();
+            this._appendMsg(text, 'bot');
+          }, delay);
+        } else {
+          this._appendMsg(text, 'bot');
+        }
+      },
+
+      userMsg(text) { this._appendMsg(text, 'user'); },
+
+      _appendMsg(text, role) {
+        const msgs = document.getElementById('chat-messages');
+        const div = document.createElement('div');
+        div.className = `chat-msg ${role}`;
+        div.textContent = text;
+        msgs.appendChild(div);
+        msgs.scrollTop = msgs.scrollHeight;
+      },
+
+      showTyping() {
+        const msgs = document.getElementById('chat-messages');
+        const t = document.createElement('div');
+        t.className = 'typing-indicator';
+        t.id = 'chat-typing';
+        t.innerHTML = '<span></span><span></span><span></span>';
+        msgs.appendChild(t);
+        msgs.scrollTop = msgs.scrollHeight;
+      },
+
+      hideTyping() {
+        const t = document.getElementById('chat-typing');
+        if (t) t.remove();
+      },
+
+      showReplies(options) {
+        const area = document.getElementById('chat-quick-replies');
+        area.innerHTML = options.map(o =>
+          `<button class="quick-reply-btn" onclick="Chat.handleReply(this, '${o}')">${o}</button>`
+        ).join('');
+      },
+
+      clearReplies() {
+        document.getElementById('chat-quick-replies').innerHTML = '';
+      },
+
+      showSpecialistList() {
+        const msgs = document.getElementById('chat-messages');
+        const wrap = document.createElement('div');
+        wrap.className = 'chat-msg bot';
+        wrap.style.maxWidth = '100%';
+        const list = document.createElement('div');
+        list.className = 'chat-spec-list';
+        SPECIALISTS.forEach(s => {
+          const item = document.createElement('div');
+          item.className = 'chat-spec-item';
+          item.innerHTML = `<div><div class="csi-name">${s.name}</div><div class="csi-title">${s.title}</div></div>`;
+          item.onclick = () => {
+            this.clearReplies();
+            this.userMsg(s.name);
+            this.selectSpecialist(s);
+            msgs.querySelectorAll('.chat-spec-list').forEach(l => l.closest('.chat-msg').remove());
+          };
+          list.appendChild(item);
+        });
+        wrap.appendChild(list);
+        msgs.appendChild(wrap);
+        msgs.scrollTop = msgs.scrollHeight;
+      },
+
+      showContactForm(specialistName) {
+        const msgs = document.getElementById('chat-messages');
+        const wrap = document.createElement('div');
+        wrap.className = 'chat-msg bot';
+        wrap.style.maxWidth = '100%';
+        wrap.style.background = 'none';
+        wrap.style.border = 'none';
+        wrap.style.padding = '0';
+        wrap.style.alignSelf = 'stretch';
+
+        const form = document.createElement('div');
+        form.className = 'chat-form';
+        form.innerHTML = `
+          <input type="text" id="chat-name-input" placeholder="Your name" autocomplete="name">
+          <input type="tel" id="chat-phone-input" placeholder="Your phone number" autocomplete="tel">
+          <button onclick="Chat.submitForm('${specialistName}')">Send Request</button>
+        `;
+        wrap.appendChild(form);
+        msgs.appendChild(wrap);
+        msgs.scrollTop = msgs.scrollHeight;
+      },
+
+      handleReply(btn, value) {
+        this.clearReplies();
+        this.userMsg(value);
+
+        if (this.state === 'AWAITING_SERVICE') {
+          this.service = value;
+          this.state = 'AWAITING_CHOICE';
+          this.botMsg(`Great choice! ${value === 'Not sure yet' ? 'No problem!' : ''}`, 800);
+          setTimeout(() => {
+            this.botMsg("Would you like to choose a specialist, or browse our gallery first?", 0);
+            this.showReplies(['Choose a Specialist', 'Browse Gallery']);
+          }, 1400);
+
+        } else if (this.state === 'AWAITING_CHOICE') {
+          if (value === 'Browse Gallery') {
+            this.state = 'GALLERY';
+            this.botMsg('Of course! Take your time looking through our work.', 700);
+            setTimeout(() => {
+              this.botMsg('Come back here to choose a specialist when you\'re ready!', 0);
+              this.showReplies(['Choose a Specialist']);
+              document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+            }, 1300);
+          } else {
+            this.state = 'PICKING_SPECIALIST';
+            this.botMsg('Here are our specialists — tap one to select:', 700);
+            setTimeout(() => this.showSpecialistList(), 1200);
+          }
+
+        } else if (this.state === 'GALLERY') {
+          this.state = 'PICKING_SPECIALIST';
+          this.botMsg('Great! Here are our specialists — tap one to select:', 700);
+          setTimeout(() => this.showSpecialistList(), 1200);
+        }
+      },
+
+      selectSpecialist(s) {
+        this.specialist = s;
+        this.state = 'AWAITING_INFO';
+        this.botMsg(`Wonderful! ${s.name} would love to see you.`, 800);
+        setTimeout(() => {
+          this.botMsg(`Just leave your name and phone number below and ${s.name} will reach out to confirm your appointment.`, 0);
+          setTimeout(() => this.showContactForm(s.name), 400);
+        }, 1500);
+      },
+
+      submitForm(specialistName) {
+        const name  = (document.getElementById('chat-name-input')?.value || '').trim();
+        const phone = (document.getElementById('chat-phone-input')?.value || '').trim();
+        if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+
+        const s = SPECIALISTS.find(x => x.name === specialistName);
+
+        // Remove form
+        document.querySelectorAll('.chat-form').forEach(f => f.closest('.chat-msg').remove());
+        this.clearReplies();
+        this.userMsg(`${name} · ${phone}`);
+        this.state = 'SENT';
+
+        this.botMsg(`✓ Your request has been sent to ${specialistName}!`, 900);
+        setTimeout(() => {
+          this.botMsg(`They'll contact you at ${phone} to confirm. We can't wait to see you! 💅`, 0);
+          if (s) sendBookingNotification(s, name, phone, '');
+        }, 1700);
+      },
+
+      reset() {
+        document.getElementById('chat-messages').innerHTML = '';
+        document.getElementById('chat-quick-replies').innerHTML = '';
+        this.state = 'GREETING';
+        this.service = null;
+        this.specialist = null;
+        this.init();
+      }
+    };
+
+    /* ============================================================
+       CHAT OPEN / CLOSE
+    ============================================================ */
+    let chatInitialized = false;
+
+    function openChat() {
+      const panel = document.getElementById('chatbot-panel');
+      panel.classList.add('open');
+      document.getElementById('chat-label').classList.remove('show');
+      if (!chatInitialized) {
+        Chat.init();
+        chatInitialized = true;
+      }
+      document.getElementById('chat-input').focus();
+    }
+
+    function closeChat() {
+      document.getElementById('chatbot-panel').classList.remove('open');
+    }
+
+    function openChatWithService(service) {
+      openChat();
+      if (chatInitialized && Chat.state !== 'AWAITING_SERVICE') return;
+      setTimeout(() => {
+        if (Chat.state === 'AWAITING_SERVICE') {
+          Chat.clearReplies();
+          Chat.userMsg(service);
+          Chat.service = service;
+          Chat.state = 'AWAITING_CHOICE';
+          Chat.botMsg(`Great choice!`, 800);
+          setTimeout(() => {
+            Chat.botMsg("Would you like to choose a specialist, or browse our gallery first?", 0);
+            Chat.showReplies(['Choose a Specialist', 'Browse Gallery']);
+          }, 1400);
+        }
+      }, 600);
+    }
+
+    document.getElementById('chatbot-toggle').addEventListener('click', () => {
+      const panel = document.getElementById('chatbot-panel');
+      if (panel.classList.contains('open')) {
+        closeChat();
+      } else {
+        openChat();
+      }
+    });
+
+    // Chat input enter key
+    document.getElementById('chat-input').addEventListener('keydown', e => {
+      if (e.key === 'Enter') document.getElementById('chat-send').click();
+    });
+    document.getElementById('chat-send').addEventListener('click', () => {
+      const input = document.getElementById('chat-input');
+      const val = input.value.trim();
+      if (!val) return;
+      input.value = '';
+      if (!chatInitialized) { openChat(); return; }
+      Chat.userMsg(val);
+      Chat.botMsg("Please use the buttons above to navigate, or type your specialist's name!", 800);
+    });
+
+    // Chat label tooltip
+    setTimeout(() => {
+      const label = document.getElementById('chat-label');
+      label.classList.add('show');
+      setTimeout(() => label.classList.remove('show'), 3500);
+    }, 2500);
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    /* ============================================================
+       SCROLL ANIMATIONS
+    ============================================================ */
+    function setupScrollAnimations() {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.fade-up').forEach((el, i) => {
+        el.style.transitionDelay = `${(i % 6) * 0.07}s`;
+        obs.observe(el);
+      });
+    }
+
+    /* ============================================================
+       INIT
+    ============================================================ */
+    renderSpecialists();
+    renderCarousel();
+    setupScrollAnimations();
+  </script>
+</body>
+</html>
